@@ -111,3 +111,69 @@ The workflow package includes the three source workbooks, data dictionary and pr
 ## Generative AI Declaration
 
 Generative AI assistance is documented in Appendix A of the design book.
+
+
+## Stand-up 2: Updated Data Processing and Visualisation
+
+### Project Overview
+This project explores hospitalised road crash injuries in
+Australia from 2011 to 2021 using BITRE datasets.
+
+The data was cleaned, transformed, integrated and validated
+using KNIME Analytics Platform. Interactive visualisations
+are developed using D3.js.
+
+### Updated Dataset
+The final cleaned dataset is located at:
+
+`website/data/Group2_Road_Injury_Cleaned.csv`
+
+It contains 253 records and four columns:
+- Year
+- Breakdown
+- Category
+- Hospitalisations
+
+The dataset supports four analytical breakdowns:
+- National Total (11 records)
+- National Road User (132 records)
+- State Total (88 records)
+- Population Status (22 records)
+
+These breakdowns overlap and should not be added together.
+
+### Website
+The website files are located inside the `website` folder.
+
+To run the website:
+1. Download or clone this GitHub repository.
+2. Open the project in Visual Studio Code.
+3. Open `website/index.html` using Live Server.
+4. View the interactive D3.js visualisations in a browser.
+
+### D3.js Visualisations
+- National Hospitalisation Trends: Interactive line chart
+  with tooltips and a 2020 decline annotation (completed).
+- State and Territory Comparison: In development.
+- Road User Comparison: In development.
+- First Nations Trends: In development.
+
+All visualisations use the cleaned CSV dataset.
+
+### KNIME Workflow
+The revised Stand-up 2 KNIME workflow is included in
+the repository as a `.knwf` file.
+
+It includes data cleaning, standardisation, aggregation,
+integration and validation against BITRE published totals.
+
+### Stand-up 1 Archive
+Earlier datasets and project documents are retained in
+the `Standup1_Archive` folder for reference.
+
+The website uses the updated consolidated dataset rather
+than the earlier separate CSV files.
+
+### Data Source
+Bureau of Infrastructure and Transport Research Economics
+(BITRE), Hospitalised Injury Data (2023).

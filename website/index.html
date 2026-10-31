@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Road Crash Hospitalisations in Australia</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Road Crash Hospitalisations in Australia</h1>
+        <p>Exploring hospitalised road injuries from 2011 to 2021</p>
+    </header>
+
+    <main>
+        <!-- National Trends - My Section -->
+        <section id="national-section">
+            <h2>National Hospitalisation Trends</h2>
+            <p>
+                How have road crash hospitalisations in Australia
+                changed between 2011 and 2021?
+            </p>
+
+
+            <div class="chart-scroll">
+                <div id="national-chart"></div>
+            </div>
+
+
+            <p class="chart-insight">
+                <strong>Key finding:</strong>
+                National road crash hospitalisations generally increased
+                between 2011 and 2019. They declined by approximately
+                4.8% in 2020 before rising again in 2021.
+                These figures represent hospitalisation counts,
+                rather than population-adjusted injury rates.
+            </p>
+
+        </section>
+
+
+                <!-- First Nations Trends - Daya -->
+        <section id="first-nations-section">
+            <h2>First Nations Hospitalisation Trends</h2>
+            <p>
+                How have hospitalisations changed for First Nations peoples
+                compared with Non-Indigenous Australians?
+            </p>
+
+            <div class="chart-controls">
+                <label for="fn-view">View:</label>
+                <select id="fn-view"></select>
+            </div>
+
+            <div class="chart-scroll">
+                <div id="first-nations-chart"></div>
+            </div>
+            <div id="fn-legend" class="chart-legend"></div>
+
+            <p class="chart-insight">
+                <strong>Key finding:</strong>
+                First Nations hospitalisations rose from 1,167 in 2011 to
+                2,220 in 2021 (about 90%), compared with about 15% for
+                Non-Indigenous Australians. They also rose by about 23% in
+                2020, when national hospitalisations fell. These figures are
+                counts, not population-adjusted rates, so use the growth view
+                to compare the two groups fairly.
+            </p>
+        </section>
+
+        <!-- Other team charts will be added later -->
+
+    </main>
+
+    <footer>
+        <p>Data Source: BITRE (2023)</p>
+    </footer>
+
+    <!-- D3.js Library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- National Trends Chart -->
+    <script src="js/national-trend.js"></script>
+
+    <!-- First Nations Chart -->
+    <script src="js/first-nations.js"></script>
+
+</body>
+
+</html>
