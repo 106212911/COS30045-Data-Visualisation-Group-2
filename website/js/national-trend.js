@@ -129,18 +129,35 @@ Data Source: BITRE, processed using KNIME
                     .getElementById("national-chart")
                     .getBoundingClientRect();
 
-                const x = pointRect.left + pointRect.width / 2
-                    - containerRect.left;
-                const y = pointRect.top - containerRect.top - 10;
-
+                // Set the content first so the tooltip can be measured
                 tooltip
                     .html(
                         `<strong>Year: ${d.Year}</strong><br>` +
                         `Hospitalisations: ${d3.format(",")(d.Hospitalisations)}`
                     )
+                    .style("visibility", "visible");
+
+                const tipW = tooltip.node().offsetWidth;
+                const tipH = tooltip.node().offsetHeight;
+
+                let x = pointRect.left + pointRect.width / 2
+                    - containerRect.left;
+                let y = pointRect.top - containerRect.top - 10;
+                let transform = "translate(-50%, -100%)";
+
+                // Not enough room above the point: show the tooltip below it
+                if (y - tipH < 0) {
+                    y = pointRect.bottom - containerRect.top + 10;
+                    transform = "translate(-50%, 0)";
+                }
+
+                // Keep the tooltip inside the left and right edges
+                x = Math.max(tipW / 2, Math.min(containerRect.width - tipW / 2, x));
+
+                tooltip
                     .style("left", `${x}px`)
                     .style("top", `${y}px`)
-                    .style("visibility", "visible");
+                    .style("transform", transform);
 
                 d3.select(point)
                     .attr("r", 8);

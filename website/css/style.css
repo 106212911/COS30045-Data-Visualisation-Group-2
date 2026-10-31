@@ -148,3 +148,62 @@ footer {
         height: auto;
     }
 }
+
+
+
+/* = First Nations chart Daya*/
+#first-nations-chart {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+}
+
+#first-nations-chart svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#first-nations-chart .data-point {
+    cursor: pointer;
+}
+
+#first-nations-chart .data-point:focus {
+    outline: none;
+    stroke: #f59e0b;
+    stroke-width: 3px;
+}
+
+.chart-controls {
+    margin: 15px 0;
+}
+
+.chart-controls select {
+    font-size: 15px;
+    padding: 5px 8px;
+    margin-left: 6px;
+}
+
+.chart-legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.chart-legend span::before {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 4px;
+    background: var(--c);
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+    #first-nations-chart {
+        min-width: 700px;
+    }
+}

@@ -43,6 +43,36 @@
 
         </section>
 
+
+                <!-- First Nations Trends - Daya -->
+        <section id="first-nations-section">
+            <h2>First Nations Hospitalisation Trends</h2>
+            <p>
+                How have hospitalisations changed for First Nations peoples
+                compared with Non-Indigenous Australians?
+            </p>
+
+            <div class="chart-controls">
+                <label for="fn-view">View:</label>
+                <select id="fn-view"></select>
+            </div>
+
+            <div class="chart-scroll">
+                <div id="first-nations-chart"></div>
+            </div>
+            <div id="fn-legend" class="chart-legend"></div>
+
+            <p class="chart-insight">
+                <strong>Key finding:</strong>
+                First Nations hospitalisations rose from 1,167 in 2011 to
+                2,220 in 2021 (about 90%), compared with about 15% for
+                Non-Indigenous Australians. They also rose by about 23% in
+                2020, when national hospitalisations fell. These figures are
+                counts, not population-adjusted rates, so use the growth view
+                to compare the two groups fairly.
+            </p>
+        </section>
+
         <!-- Other team charts will be added later -->
 
     </main>
@@ -56,6 +86,9 @@
 
     <!-- National Trends Chart -->
     <script src="js/national-trend.js"></script>
+
+    <!-- First Nations Chart -->
+    <script src="js/first-nations.js"></script>
 
 </body>
 
