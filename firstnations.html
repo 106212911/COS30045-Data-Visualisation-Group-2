@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First Nations Trends</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>First Nations Hospitalisation Trends</h1>
+    <p>Explore how road injury hospitalisations have changed from 2011 to 2021.</p>
+  </header>
+
+  <main>
+    <section id="controls"></section>
+
+    <section id="chart-container">
+      <svg id="first-nations-chart"></svg>
+    </section>
+
+    <p class="note">
+      Note: these are hospitalisation counts, not rates. Use the "Growth since 2011"
+      view to compare the two groups fairly.
+    </p>
+
+    <div id="tooltip" class="tooltip"></div>
+  </main>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="js/firstnations.js"></script>
+</body>
+</html>

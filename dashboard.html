@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Road Injury Hospitalisations 2011-2021</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <h1>Road injury hospitalisations in Australia, 2011 to 2021</h1>
+      <p class="lede">How many people were hospitalised after road crashes, where, who they were, and how the picture differs for First Nations peoples.</p>
+      <nav aria-label="Sections">
+        <a href="#national">National</a>
+        <a href="#states">States and territories</a>
+        <a href="#roadusers">Road users</a>
+        <a href="#firstnations">First Nations</a>
+        <a href="#about">About the data</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="filters" aria-label="Filters">
+    <label>Year
+      <select id="year-select"></select>
+    </label>
+    <button id="reset-btn" type="button">Reset</button>
+  </section>
+
+  <main>
+    <section class="kpis" aria-label="Key figures">
+      <div class="kpi">
+        <span class="kpi-label">Hospitalised, all of Australia</span>
+        <span class="kpi-value" id="kpi-national">-</span>
+        <span class="kpi-sub" id="kpi-national-sub"></span>
+      </div>
+      <div class="kpi fn">
+        <span class="kpi-label">First Nations peoples hospitalised</span>
+        <span class="kpi-value" id="kpi-fn">-</span>
+        <span class="kpi-sub" id="kpi-fn-sub"></span>
+      </div>
+      <div class="kpi fn">
+        <span class="kpi-label">First Nations change since 2011</span>
+        <span class="kpi-value" id="kpi-growth">-</span>
+        <span class="kpi-sub">compared with the first year in the data</span>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="panel" id="national">
+        <h2>Hospitalisations have risen since 2011</h2>
+        <p class="takeaway">From 34,033 in 2011 to 39,505 in 2021, with a dip in 2020.</p>
+        <div class="chart" id="national-chart"></div>
+      </section>
+
+      <section class="panel" id="states">
+        <h2>States and territories</h2>
+        <p class="takeaway">Member 2: add the state comparison chart here.</p>
+        <div class="chart placeholder" id="states-chart">State chart goes here</div>
+      </section>
+
+      <section class="panel" id="roadusers">
+        <h2>Road user types</h2>
+        <p class="takeaway">Member 2: add the road-user comparison chart here.</p>
+        <div class="chart placeholder" id="roadusers-chart">Road user chart goes here</div>
+      </section>
+
+      <section class="panel fn" id="firstnations">
+        <h2>First Nations hospitalisations have nearly doubled</h2>
+        <p class="takeaway">Up about 90% since 2011, against about 15% for Non-Indigenous Australians.</p>
+        <label class="view">View
+          <select id="view-select"></select>
+        </label>
+        <div class="chart" id="fn-chart"></div>
+        <div class="legend" id="fn-legend"></div>
+        <p class="note">These are counts, not rates. First Nations peoples are a much smaller share of the population, so use "Growth since 2011" to compare the two groups fairly.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer id="about">
+    <h2>About the data</h2>
+    <p>Source, method and limitations go here (add the dataset source and references from the Design Book).</p>
+  </footer>
+
+  <div id="tooltip" class="tooltip" role="status"></div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
