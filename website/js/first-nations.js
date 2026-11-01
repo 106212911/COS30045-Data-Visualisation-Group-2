@@ -23,6 +23,17 @@ Data Source: BITRE, processed using KNIME
 
     const container = d3.select("#first-nations-chart");
 
+    // Explanation for the indexed growth view
+    const indexNote = container.append("p")
+        .attr("class", "fn-index-explanation")
+        .style("display", "none")
+        .text(
+            "In this view, each group's hospitalisations in 2011 " +
+            "are set to 100. An index of 150 means a 50% increase " +
+            "compared with 2011. These values represent changes " +
+            "in hospitalisation counts, not injury rates."
+        );
+
     // Responsive SVG
     const svg = container.append("svg")
         .attr("viewBox", `0 0 ${width} ${height}`)
@@ -94,6 +105,7 @@ Data Source: BITRE, processed using KNIME
                 tooltip.style("visibility", "hidden");
 
                 const isIndex = view === "index";
+                indexNote.style("display", isIndex ? "block" : "none");
                 const field = isIndex ? "Index" : "Hospitalisations";
                 const names = view === "fn" ? [FN] : [FN, NON];
                 const series = names.map(n => ({ name: n, values: byGroup.get(n) }));
@@ -157,49 +169,49 @@ Data Source: BITRE, processed using KNIME
 
                 // Tooltip handlers
                 function showTooltip(event, d) {
-    const point = event.currentTarget;
-    const pointRect = point.getBoundingClientRect();
-    const containerRect = document
-        .getElementById("first-nations-chart")
-        .getBoundingClientRect();
+                    const point = event.currentTarget;
+                    const pointRect = point.getBoundingClientRect();
+                    const containerRect = document
+                        .getElementById("first-nations-chart")
+                        .getBoundingClientRect();
 
-    const indexLine = isIndex
-        ? `<br>Index: ${d.Index.toFixed(1)}`
-        : "";
+                    const indexLine = isIndex
+                        ? `<br>Index: ${d.Index.toFixed(1)}`
+                        : "";
 
-    // Set the content first so the tooltip can be measured
-    tooltip
-        .html(
-            `<strong>${d.Category}</strong><br>` +
-            `Year: ${d.Year}<br>` +
-            `Hospitalisations: ${d3.format(",")(d.Hospitalisations)}` +
-            indexLine
-        )
-        .style("visibility", "visible");
+                    // Set the content first so the tooltip can be measured
+                    tooltip
+                        .html(
+                            `<strong>${d.Category}</strong><br>` +
+                            `Year: ${d.Year}<br>` +
+                            `Hospitalisations: ${d3.format(",")(d.Hospitalisations)}` +
+                            indexLine
+                        )
+                        .style("visibility", "visible");
 
-    const tipW = tooltip.node().offsetWidth;
-    const tipH = tooltip.node().offsetHeight;
+                    const tipW = tooltip.node().offsetWidth;
+                    const tipH = tooltip.node().offsetHeight;
 
-    let x = pointRect.left + pointRect.width / 2 - containerRect.left;
-    let y = pointRect.top - containerRect.top - 10;
-    let transform = "translate(-50%, -100%)";
+                    let x = pointRect.left + pointRect.width / 2 - containerRect.left;
+                    let y = pointRect.top - containerRect.top - 10;
+                    let transform = "translate(-50%, -100%)";
 
-    // Not enough room above the point: show the tooltip below it
-    if (y - tipH < 0) {
-        y = pointRect.bottom - containerRect.top + 10;
-        transform = "translate(-50%, 0)";
-    }
+                    // Not enough room above the point: show the tooltip below it
+                    if (y - tipH < 0) {
+                        y = pointRect.bottom - containerRect.top + 10;
+                        transform = "translate(-50%, 0)";
+                    }
 
-    // Keep the tooltip inside the left and right edges
-    x = Math.max(tipW / 2, Math.min(containerRect.width - tipW / 2, x));
+                    // Keep the tooltip inside the left and right edges
+                    x = Math.max(tipW / 2, Math.min(containerRect.width - tipW / 2, x));
 
-    tooltip
-        .style("left", `${x}px`)
-        .style("top", `${y}px`)
-        .style("transform", transform);
+                    tooltip
+                        .style("left", `${x}px`)
+                        .style("top", `${y}px`)
+                        .style("transform", transform);
 
-    d3.select(point).attr("r", 8);
-}
+                    d3.select(point).attr("r", 8);
+                }
 
                 function hideTooltip(event) {
                     tooltip.style("visibility", "hidden");
@@ -278,14 +290,14 @@ Data Source: BITRE, processed using KNIME
                         .attr("font-size", "14px")
                         .attr("font-weight", "bold")
                         .attr("fill", "#9a3412")
-                        .text("2020 rise");
+                        .text("First Nations rise");
 
                     annotation.append("text")
                         .attr("x", labelX + 12)
                         .attr("y", labelY + 43)
                         .attr("font-size", "12px")
                         .attr("fill", "#9a3412")
-                        .text(`${change.toFixed(1)}% higher than 2019`);
+                        .text(`2020: +${change.toFixed(1)}% vs 2019`);
                 }
 
                 // Legend

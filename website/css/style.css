@@ -150,7 +150,6 @@ footer {
 }
 
 
-
 /* = First Nations chart Daya*/
 #first-nations-chart {
     position: relative;
@@ -206,4 +205,15 @@ footer {
     #first-nations-chart {
         min-width: 700px;
     }
+}
+
+/* First Nations indexed growth explanation */
+.fn-index-explanation {
+    background-color: #eef4fa;
+    border-left: 4px solid #2166ac;
+    padding: 12px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 10px 0 15px;
 }
