@@ -217,3 +217,172 @@ footer {
     line-height: 1.6;
     margin: 10px 0 15px;
 }
+
+
+/* State & Territory Comparison Chart */
+
+#state-chart {
+    position: relative;
+    width: 100%;
+}
+
+#state-chart svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#state-chart .chart-tooltip {
+    position: absolute;
+    visibility: hidden;
+    background: #16324f;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.6;
+    pointer-events: none;
+    z-index: 10;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+}
+
+#state-chart .state-bar {
+    cursor: pointer;
+    transition: fill 0.2s ease;
+}
+
+#state-chart .state-bar:focus {
+    outline: 2px solid #16324f;
+    outline-offset: 2px;
+}
+
+#state-chart .axis-label {
+    fill: #333;
+}
+
+
+/* Responsive Design - State & Territory Chart */
+
+#state-section {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#state-section .chart-scroll {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#state-chart {
+    width: 100%;
+    min-width: 0;
+}
+
+#state-chart svg {
+    width: 100%;
+    min-width: 650px;
+    height: auto;
+    display: block;
+}
+
+/* Tablet and mobile screens */
+@media (max-width: 768px) {
+
+    #state-section {
+        padding: 15px;
+    }
+
+    #state-section h2 {
+        font-size: 20px;
+    }
+
+    #state-section p {
+        font-size: 14px;
+    }
+
+    #state-chart svg {
+        min-width: 650px;
+    }
+
+    #state-section .chart-controls {
+        margin-bottom: 15px;
+    }
+}
+
+
+/* Road User Comparison Chart */
+
+#road-user-section {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#road-user-section .chart-scroll {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#road-user-chart {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+}
+
+#road-user-chart svg {
+    width: 100%;
+    min-width: 750px;
+    height: auto;
+    display: block;
+}
+
+#road-user-chart .chart-tooltip {
+    position: absolute;
+    visibility: hidden;
+    background: #16324f;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.6;
+    pointer-events: none;
+    z-index: 10;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+}
+
+#road-user-chart .road-user-bar {
+    cursor: pointer;
+    transition: fill 0.2s ease;
+}
+
+#road-user-chart .road-user-bar:focus {
+    outline: 2px solid #16324f;
+    outline-offset: 2px;
+}
+
+/* Tablet and mobile screens */
+@media (max-width: 768px) {
+
+    #road-user-section {
+        padding: 15px;
+    }
+
+    #road-user-section h2 {
+        font-size: 20px;
+    }
+
+    #road-user-section p {
+        font-size: 14px;
+    }
+
+    #road-user-chart svg {
+        min-width: 750px;
+    }
+
+    #road-user-section .chart-controls {
+        margin-bottom: 15px;
+    }
+}
