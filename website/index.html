@@ -17,6 +17,15 @@
         <p>Exploring hospitalised road injuries from 2011 to 2021</p>
     </header>
 
+    <nav class="site-nav">
+        <ul>
+            <li><a href="#national-section">National</a></li>
+            <li><a href="#first-nations-section">First Nations</a></li>
+            <li><a href="#state-section">States</a></li>
+            <li><a href="#road-user-section">Road Users</a></li>
+        </ul>
+    </nav>
+
     <main>
         <!-- National Trends - My Section -->
         <section id="national-section">
@@ -26,11 +35,9 @@
                 changed between 2011 and 2021?
             </p>
 
-
             <div class="chart-scroll">
                 <div id="national-chart"></div>
             </div>
-
 
             <p class="chart-insight">
                 <strong>Key finding:</strong>
@@ -40,11 +47,9 @@
                 These figures represent hospitalisation counts,
                 rather than population-adjusted injury rates.
             </p>
-
         </section>
 
-
-                <!-- First Nations Trends - Daya -->
+        <!-- First Nations Trends - Daya -->
         <section id="first-nations-section">
             <h2>First Nations Hospitalisation Trends</h2>
             <p>
@@ -73,61 +78,55 @@
             </p>
         </section>
 
-       <!-- State & Territory Comparison -->
-<section id="state-section">
-    <h2>State & Territory Comparison</h2>
+        <!-- State & Territory Comparison -->
+        <section id="state-section">
+            <h2>State &amp; Territory Comparison</h2>
 
-    <p>
-        How do road crash hospitalisations compare
-        across Australia's states and territories?
-    </p>
+            <p>
+                How do road crash hospitalisations compare
+                across Australia's states and territories?
+            </p>
 
-    <div class="chart-controls">
-        <label for="state-year">Select Year:</label>
-        <select id="state-year"></select>
-    </div>
+            <div class="chart-controls">
+                <label for="state-year">Select Year:</label>
+                <select id="state-year"></select>
+            </div>
 
-    <div class="chart-scroll">
-        <div id="state-chart"></div>
-    </div>
+            <div class="chart-scroll">
+                <div id="state-chart"></div>
+            </div>
 
-    <p class="chart-insight">
-        <strong>Key finding:</strong>
-        Compare road crash hospitalisation counts
-        across the eight Australian states and territories.
-    </p>
-</section>
+            <p class="chart-insight">
+                <strong>Key finding:</strong>
+                Compare road crash hospitalisation counts
+                across the eight Australian states and territories.
+            </p>
+        </section>
 
+        <!-- Road User Comparison - Lin Yan -->
+        <section id="road-user-section">
+            <h2>Road User Comparison</h2>
 
-<!-- Road User Comparison - Lin Yan -->
-<section id="road-user-section">
+            <p>
+                Which types of road users experience the highest
+                number of hospitalisations from road crashes in Australia?
+            </p>
 
-    <h2>Road User Comparison</h2>
+            <div class="chart-controls">
+                <label for="road-user-year">Select Year:</label>
+                <select id="road-user-year"></select>
+            </div>
 
-    <p>
-        Which types of road users experience the highest
-        number of hospitalisations from road crashes in Australia?
-    </p>
+            <div class="chart-scroll">
+                <div id="road-user-chart"></div>
+            </div>
 
-    <div class="chart-controls">
-        <label for="road-user-year">Select Year:</label>
-        <select id="road-user-year"></select>
-    </div>
-
-    <div class="chart-scroll">
-        <div id="road-user-chart"></div>
-    </div>
-
-    <p class="chart-insight">
-        <strong>Key finding:</strong>
-        Compare road crash hospitalisation counts
-        across different types of road users.
-    </p>
-
-</section>
-
-
-<!-- Other team charts will be added later -->
+            <p class="chart-insight">
+                <strong>Key finding:</strong>
+                Compare road crash hospitalisation counts
+                across different types of road users.
+            </p>
+        </section>
     </main>
 
     <footer>
@@ -137,16 +136,10 @@
     <!-- D3.js Library -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
-    <!-- National Trends Chart -->
+    <!-- Charts -->
     <script src="js/national-trend.js"></script>
-
-    <!-- First Nations Chart -->
     <script src="js/first-nations.js"></script>
-
-    <!-- State & Territory Comparison -->
     <script src="js/state-comparison.js"></script>
-
-    <!-- Road User Comparison -->
     <script src="js/road-user.js"></script>
 
 </body>

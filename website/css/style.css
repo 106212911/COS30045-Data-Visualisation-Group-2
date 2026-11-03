@@ -1,5 +1,11 @@
 /* COS30045 Group 2 - Road Injury Visualisation */
 
+/* Smooth scrolling and offset for the sticky nav */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+}
+
 /* General page styling */
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -15,7 +21,7 @@ header {
     background-color: #16324f;
     color: white;
     text-align: center;
-    padding: 35px 20px;
+    padding: 35px 20px 15px;
 }
 
 header h1 {
@@ -25,7 +31,53 @@ header h1 {
 
 header p {
     margin-top: 10px;
+    margin-bottom: 0;
     color: #e3edf5;
+}
+
+/* Sticky navigation: same navy as the header so they look like one block */
+.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #16324f;
+    padding: 10px 20px 16px;
+}
+
+.site-nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav a {
+    display: inline-block;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 999px;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+    background: #fdba8c;
+    border-color: #fdba8c;
+    color: #16324f;
+    outline: none;
+}
+
+.site-nav a:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
 }
 
 /* Main website content */
@@ -73,6 +125,15 @@ footer {
 @media (max-width: 768px) {
     header h1 {
         font-size: 1.5rem;
+    }
+
+    .site-nav ul {
+        gap: 8px;
+    }
+
+    .site-nav a {
+        padding: 6px 14px;
+        font-size: 13px;
     }
 
     main {
