@@ -7,9 +7,17 @@ Data Source: BITRE, processed using KNIME
 
 // Set chart dimensions and margins
 (() => {
-    const margin = { top: 40, right: 40, bottom: 70, left: 90 };
+
+    const margin = {
+        top: 20,
+        right: 25,
+        bottom: 60,
+        left: 80
+    };
+
     const width = 900;
-    const height = 450;
+    const height = 260;
+
 
     const chartWidth = width - margin.left - margin.right;
     const chartHeight = height - margin.top - margin.bottom;

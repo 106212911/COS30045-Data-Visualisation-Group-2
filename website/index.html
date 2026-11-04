@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="description"
+        content="Interactive visualisation of road crash hospitalisations in Australia from 2011 to 2021 using BITRE data.">
+
     <title>Road Crash Hospitalisations in Australia</title>
 
     <link rel="stylesheet" href="css/style.css">
@@ -12,24 +15,47 @@
 
 <body>
 
+    <!-- Website Header -->
     <header>
         <h1>Road Crash Hospitalisations in Australia</h1>
-        <p>Exploring hospitalised road injuries from 2011 to 2021</p>
+        <p>
+            Exploring hospitalised road injuries from 2011 to 2021
+            | Data Source: BITRE (2023)
+        </p>
     </header>
 
-    <nav class="site-nav">
+
+    <!-- Dashboard Navigation -->
+    <nav class="site-nav" aria-label="Dashboard navigation">
         <ul>
-            <li><a href="#national-section">National</a></li>
-            <li><a href="#first-nations-section">First Nations</a></li>
-            <li><a href="#state-section">States</a></li>
-            <li><a href="#road-user-section">Road Users</a></li>
+            <li>
+                <a href="#" id="show-all-charts">All Charts</a>
+            </li>
+            <li>
+                <a href="#national-section">National Trends</a>
+            </li>
+            <li>
+                <a href="#state-section">States</a>
+            </li>
+            <li>
+                <a href="#road-user-section">Road Users</a>
+            </li>
+            <li>
+                <a href="#first-nations-section">First Nations</a>
+            </li>
         </ul>
     </nav>
 
-    <main>
-        <!-- National Trends - My Section -->
+
+    <!-- Main Dashboard -->
+    <main class="dashboard-grid">
+
+        <!-- Chart 1: National Hospitalisation Trends -->
+        <!-- Developer: Lai Man Yee -->
         <section id="national-section">
+
             <h2>National Hospitalisation Trends</h2>
+
             <p>
                 How have road crash hospitalisations in Australia
                 changed between 2011 and 2021?
@@ -41,106 +67,242 @@
 
             <p class="chart-insight">
                 <strong>Key finding:</strong>
-                National road crash hospitalisations generally increased
-                between 2011 and 2019. They declined by approximately
+                Hospitalisations increased from 34,033 in 2011
+                to 39,505 in 2021. They declined by approximately
                 4.8% in 2020 before rising again in 2021.
-                These figures represent hospitalisation counts,
-                rather than population-adjusted injury rates.
             </p>
+
         </section>
 
-        <!-- First Nations Trends - Daya -->
-        <section id="first-nations-section">
-            <h2>First Nations Hospitalisation Trends</h2>
-            <p>
-                How have hospitalisations changed for First Nations peoples
-                compared with Non-Indigenous Australians?
-            </p>
 
-            <div class="chart-controls">
-                <label for="fn-view">View:</label>
-                <select id="fn-view"></select>
-            </div>
-
-            <div class="chart-scroll">
-                <div id="first-nations-chart"></div>
-            </div>
-            <div id="fn-legend" class="chart-legend"></div>
-
-            <p class="chart-insight">
-                <strong>Key finding:</strong>
-                First Nations hospitalisations rose from 1,167 in 2011 to
-                2,220 in 2021 (about 90%), compared with about 15% for
-                Non-Indigenous Australians. They also rose by about 23% in
-                2020, when national hospitalisations fell. These figures are
-                counts, not population-adjusted rates, so use the growth view
-                to compare the two groups fairly.
-            </p>
-        </section>
-
-        <!-- State & Territory Comparison -->
+        <!-- Chart 2: State & Territory Heatmap -->
+        <!-- Original state comparison: Lin Yan -->
         <section id="state-section">
-            <h2>State &amp; Territory Comparison</h2>
+
+            <h2>State &amp; Territory Heatmap</h2>
 
             <p>
-                How do road crash hospitalisations compare
-                across Australia's states and territories?
+                How do road crash hospitalisations vary
+                across Australian states and territories
+                between 2011 and 2021?
             </p>
 
-            <div class="chart-controls">
-                <label for="state-year">Select Year:</label>
-                <select id="state-year"></select>
-            </div>
-
+            <!-- Heatmap displays all years -->
+            <!-- No year dropdown is needed -->
             <div class="chart-scroll">
                 <div id="state-chart"></div>
             </div>
 
-            <p class="chart-insight">
-                <strong>Key finding:</strong>
-                Compare road crash hospitalisation counts
-                across the eight Australian states and territories.
+            <div class="heatmap-legend">
+                <span>Lower count</span>
+                <span class="heatmap-gradient"></span>
+                <span>Higher count</span>
+                <span id="state-max-count"></span>
+            </div>
+
+            <p class="chart-note">
+                Colours show hospitalisation counts, not
+                population-adjusted injury rates.
             </p>
+
         </section>
 
-        <!-- Road User Comparison - Lin Yan -->
+
+        <!-- Chart 3: Road User Comparison -->
+        <!-- Developer: Lin Yan -->
         <section id="road-user-section">
+
             <h2>Road User Comparison</h2>
 
             <p>
-                Which types of road users experience the highest
-                number of hospitalisations from road crashes in Australia?
+                Which road-user types experience the highest
+                number of hospitalisations in Australia?
             </p>
 
+            <!-- Year Selection -->
             <div class="chart-controls">
-                <label for="road-user-year">Select Year:</label>
+                <label for="road-user-year">
+                    Select Year:
+                </label>
+
                 <select id="road-user-year"></select>
             </div>
 
+            <!-- Interactive D3 Bar Chart -->
             <div class="chart-scroll">
                 <div id="road-user-chart"></div>
             </div>
 
             <p class="chart-insight">
-                <strong>Key finding:</strong>
-                Compare road crash hospitalisation counts
-                across different types of road users.
+                <strong>Explore:</strong>
+                Select a year to compare hospitalisation
+                counts across different road-user categories.
+                Larger counts do not necessarily indicate
+                higher individual injury risk.
             </p>
+
         </section>
+
+
+        <!-- Chart 4: First Nations Hospitalisation Trends -->
+        <!-- Developer: Dayaanan -->
+        <section id="first-nations-section">
+
+            <h2>First Nations Hospitalisation Trends</h2>
+
+            <p>
+                How have hospitalisations changed for
+                First Nations peoples compared with
+                Non-Indigenous Australians?
+            </p>
+
+            <!-- Chart View Selection -->
+            <div class="chart-controls">
+                <label for="fn-view">
+                    View:
+                </label>
+
+                <select id="fn-view"></select>
+            </div>
+
+            <!-- Interactive D3 Line Chart -->
+            <div class="chart-scroll">
+                <div id="first-nations-chart"></div>
+            </div>
+
+            <!-- Legend -->
+            <div id="fn-legend" class="chart-legend"></div>
+
+            <p class="chart-insight">
+                <strong>Key finding:</strong>
+                First Nations hospitalisations increased
+                from 1,167 in 2011 to 2,220 in 2021,
+                approximately 90%.
+
+                The indexed growth view compares relative
+                changes in hospitalisation counts between
+                the two population groups, not injury rates.
+            </p>
+
+        </section>
+
     </main>
 
+
+    <!-- Website Footer -->
     <footer>
-        <p>Data Source: BITRE (2023)</p>
+        <p>
+            COS30045 Data Visualisation | Group 2
+        </p>
+
+        <p>
+            Data Source: Bureau of Infrastructure and
+            Transport Research Economics (BITRE), 2023.
+        </p>
+
+        <p>
+            Note: Hospitalisation counts are not
+            population-adjusted injury rates.
+        </p>
     </footer>
+
 
     <!-- D3.js Library -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
-    <!-- Charts -->
+    <!-- Chart 1: National Trends -->
     <script src="js/national-trend.js"></script>
-    <script src="js/first-nations.js"></script>
-    <script src="js/state-comparison.js"></script>
+
+    <!-- Chart 2: State & Territory Heatmap -->
+    <script src="js/state-heatmap.js"></script>
+
+    <!-- Chart 3: Road User Comparison -->
     <script src="js/road-user.js"></script>
+
+    <!-- Chart 4: First Nations Trends -->
+    <script src="js/first-nations.js"></script>
+
+
+    <!-- Dashboard Focus Mode -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const dashboard = document.querySelector(".dashboard-grid");
+            const sections = dashboard.querySelectorAll("section");
+
+            const navLinks = document.querySelectorAll(
+                '.site-nav a[href^="#"]:not(#show-all-charts)'
+            );
+
+            const allChartsButton =
+                document.getElementById("show-all-charts");
+
+            // Return to the four-chart overview
+            function showAllCharts() {
+                dashboard.classList.remove("focus-mode");
+
+                sections.forEach(section => {
+                    section.classList.remove("focused");
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove("active");
+                    link.removeAttribute("aria-current");
+                });
+            }
+
+            // Enlarge the selected chart
+            navLinks.forEach(link => {
+                link.addEventListener("click", function (event) {
+
+                    // Keep normal anchor navigation on mobile
+                    if (window.innerWidth < 1000) return;
+
+                    event.preventDefault();
+
+                    const target = document.querySelector(
+                        this.getAttribute("href")
+                    );
+
+                    if (!target) return;
+
+                    const alreadyFocused =
+                        target.classList.contains("focused");
+
+                    showAllCharts();
+
+                    if (!alreadyFocused) {
+                        dashboard.classList.add("focus-mode");
+                        target.classList.add("focused");
+                        this.classList.add("active");
+                        this.setAttribute("aria-current", "true");
+                    }
+                });
+            });
+
+            // All Charts button
+            allChartsButton.addEventListener("click", event => {
+                event.preventDefault();
+                showAllCharts();
+            });
+
+            // Escape key returns to overview
+            document.addEventListener("keydown", event => {
+                if (event.key === "Escape") {
+                    showAllCharts();
+                }
+            });
+
+            // Restore normal layout for smaller screens
+            window.addEventListener("resize", () => {
+                if (window.innerWidth < 1000) {
+                    showAllCharts();
+                }
+            });
+
+        });
+    </script>
+
 
 </body>
 

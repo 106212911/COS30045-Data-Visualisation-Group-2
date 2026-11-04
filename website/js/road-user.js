@@ -9,15 +9,17 @@ Data Source: BITRE (2023), processed using KNIME
 (() => {
 
     // 1. Set chart dimensions
+
     const margin = {
-        top: 40,
-        right: 100,
+        top: 30,
+        right: 75,
         bottom: 65,
-        left: 300
+        left: 260
     };
 
-    const width = 1100;
-    const height = 680;
+    const width = 1000;
+    const height = 310;
+
 
     const chartWidth = width - margin.left - margin.right;
     const chartHeight = height - margin.top - margin.bottom;
@@ -165,7 +167,7 @@ Data Source: BITRE (2023), processed using KNIME
                     .duration(500)
                     .call(d3.axisLeft(yScale))
                     .selectAll("text")
-                    .style("font-size", "11px");
+                    .style("font-size", "15px");
 
                 // 11. Draw horizontal bars
                 const bars = chart.selectAll(".road-user-bar")
@@ -231,7 +233,7 @@ Data Source: BITRE (2023), processed using KNIME
                     .attr("aria-label", d =>
                         `${d.Category}: ${d3.format(",")(d.Hospitalisations)} hospitalisations in ${d.Year}`
                     )
-                    .on("mouseenter focus", function(event, d) {
+                    .on("mouseenter focus", function (event, d) {
 
                         tooltip
                             .html(
@@ -253,7 +255,7 @@ Data Source: BITRE (2023), processed using KNIME
                             .style("left", `${x}px`)
                             .style("top", `${y}px`);
                     })
-                    .on("mousemove", function(event) {
+                    .on("mousemove", function (event) {
 
                         const [x, y] = d3.pointer(
                             event,
@@ -264,7 +266,7 @@ Data Source: BITRE (2023), processed using KNIME
                             .style("left", `${x}px`)
                             .style("top", `${y}px`);
                     })
-                    .on("mouseleave blur", function() {
+                    .on("mouseleave blur", function () {
 
                         tooltip.style("visibility", "hidden");
 
@@ -277,7 +279,7 @@ Data Source: BITRE (2023), processed using KNIME
             updateChart(2021);
 
             // 15. Update chart when the year changes
-            yearSelect.on("change", function() {
+            yearSelect.on("change", function () {
                 updateChart(this.value);
             });
 
