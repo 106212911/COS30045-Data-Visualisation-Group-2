@@ -229,7 +229,7 @@ Data Source: BITRE (2023), processed using KNIME
                     .attr("aria-label", d =>
                         `${d.Category}: ${d3.format(",")(d.Hospitalisations)} hospitalisations in ${d.Year}`
                     )
-                    .on("mouseenter focus", function(event, d) {
+                    .on("mouseenter focus", function (event, d) {
 
                         tooltip
                             .html(
@@ -251,7 +251,7 @@ Data Source: BITRE (2023), processed using KNIME
                             .style("left", `${x}px`)
                             .style("top", `${y}px`);
                     })
-                    .on("mousemove", function(event) {
+                    .on("mousemove", function (event) {
 
                         const [x, y] = d3.pointer(
                             event,
@@ -262,7 +262,7 @@ Data Source: BITRE (2023), processed using KNIME
                             .style("left", `${x}px`)
                             .style("top", `${y}px`);
                     })
-                    .on("mouseleave blur", function() {
+                    .on("mouseleave blur", function () {
 
                         tooltip.style("visibility", "hidden");
 
@@ -275,7 +275,7 @@ Data Source: BITRE (2023), processed using KNIME
             updateChart(2021);
 
             // 15. Update chart when the year changes
-            yearSelect.on("change", function() {
+            yearSelect.on("change", function () {
                 updateChart(this.value);
             });
 
