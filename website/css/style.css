@@ -771,3 +771,186 @@ footer {
         border-color: #2166ac;
     }
 }
+
+
+
+/* ===== Page tabs (logic in js/tabs.js) ===== */
+.tab-hidden {
+    display: none !important;
+}
+
+.page-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 16px;
+    flex-shrink: 0;
+}
+
+.page-tab-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.page-tab,
+.page-arrow {
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid #16324f;
+    background: #fff;
+    color: #16324f;
+    border-radius: 999px;
+    padding: 6px 16px;
+}
+
+.page-tab.active {
+    background: #16324f;
+    color: #fff;
+}
+
+.page-arrow {
+    width: 42px;
+    padding: 4px 0;
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.page-arrow:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.page-tab:focus-visible,
+.page-arrow:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 2px;
+}
+
+.page-pager {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    padding: 12px;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.page-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 16px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+
+/* ===== First Nations Share chart (Chart 8) ===== */
+#first-nations-share-chart {
+    position: relative;
+    width: 100%;
+}
+
+#first-nations-share-chart svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#first-nations-share-chart .data-point {
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    #first-nations-share-chart {
+        min-width: 700px;
+    }
+}
+
+
+/* ===== Desktop: compact tab bar, chart 8 sizing, short pages ===== */
+@media (min-width: 1000px) {
+
+    .page-tabs {
+        padding: 4px 12px;
+        gap: 8px;
+    }
+
+    .page-tab {
+        padding: 3px 12px;
+        font-size: 12px;
+    }
+
+    .page-arrow {
+        width: 30px;
+        padding: 0 0 2px;
+        font-size: 1.1rem;
+    }
+
+    .page-pager {
+        padding: 3px;
+        font-size: 12px;
+    }
+
+    /* Let Chart 8 fill its card like the other charts */
+    main.dashboard-grid #first-nations-share-chart {
+        width: 100%;
+        height: 100% !important;
+        min-height: 0 !important;
+        position: relative;
+    }
+
+    /* Let Chart 9 fill its card the same way */
+    main.dashboard-grid #road-user-composition-chart {
+        width: 100%;
+        height: 100% !important;
+        min-height: 0 !important;
+        position: relative;
+    }
+
+
+}
+
+/* ===== Road User Composition chart (Chart 9) ===== */
+#road-user-composition-chart {
+    position: relative;
+    width: 100%;
+}
+
+#road-user-composition-chart svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#road-user-composition-chart .year-column {
+    cursor: pointer;
+}
+
+#road-user-composition-chart .year-column:focus {
+    outline: none;
+}
+
+/* Bigger legend swatches for the area colours */
+#road-user-composition-legend span::before {
+    height: 12px;
+    width: 12px;
+}
+
+@media (max-width: 768px) {
+    #road-user-composition-chart {
+        min-width: 700px;
+    }
+}

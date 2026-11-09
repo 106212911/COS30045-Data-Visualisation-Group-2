@@ -2,6 +2,7 @@
 COS30045 Data Visualisation - Group 2
 First Nations Hospitalisation Trends (2011-2021)
 Data Source: BITRE, processed using KNIME
+Dayaanan
 */
 
 (() => {
@@ -15,7 +16,6 @@ Data Source: BITRE, processed using KNIME
 
     const width = 900;
     const height = 260;
-
 
     const chartWidth = width - margin.left - margin.right;
     const chartHeight = height - margin.top - margin.bottom;
@@ -61,7 +61,9 @@ Data Source: BITRE, processed using KNIME
     svg.on("click", function (event) {
         if (!event.target.classList.contains("data-point")) {
             tooltip.style("visibility", "hidden");
-            chart.selectAll(".data-point").attr("r", 5);
+            chart.selectAll(".data-point")
+                .attr("r", 5)
+                .attr("stroke", "white");
         }
     });
 
@@ -77,8 +79,6 @@ Data Source: BITRE, processed using KNIME
             const rows = data
                 .filter(d => d.Breakdown === "Population Status")
                 .sort((a, b) => a.Year - b.Year);
-
-            console.table(rows);
 
             // 2 groups x 11 years
             if (rows.length !== 22) {
@@ -119,13 +119,18 @@ Data Source: BITRE, processed using KNIME
                 const series = names.map(n => ({ name: n, values: byGroup.get(n) }));
                 const all = series.flatMap(s => s.values);
 
+                // Lowest y value: 0 for counts, a bit under the smallest index otherwise
+                const yMin = isIndex
+                    ? Math.min(80, d3.min(all, d => d.Index) - 5)
+                    : 0;
+
                 // Scales
                 const xScale = d3.scaleLinear()
                     .domain(d3.extent(all, d => d.Year))
                     .range([0, chartWidth]);
 
                 const yScale = d3.scaleLinear()
-                    .domain([isIndex ? 80 : 0, d3.max(all, d => d[field]) * 1.08])
+                    .domain([yMin, d3.max(all, d => d[field]) * 1.08])
                     .nice()
                     .range([chartHeight, 0]);
 
@@ -172,6 +177,8 @@ Data Source: BITRE, processed using KNIME
                         .attr("fill", "none")
                         .attr("stroke", COLORS[s.name])
                         .attr("stroke-width", 3)
+                        // Dashed for Non-Indigenous so the groups differ by more than colour
+                        .attr("stroke-dasharray", s.name === NON ? "7,4" : null)
                         .attr("d", line);
                 });
 
@@ -218,40 +225,75 @@ Data Source: BITRE, processed using KNIME
                         .style("top", `${y}px`)
                         .style("transform", transform);
 
-                    d3.select(point).attr("r", 8);
+                    // Bigger point with a dark outline so the focused point is easy to see
+                    d3.select(point)
+                        .attr("r", 8)
+                        .attr("stroke", "#000");
                 }
 
                 function hideTooltip(event) {
                     tooltip.style("visibility", "hidden");
-                    d3.select(event.currentTarget).attr("r", 5);
+                    d3.select(event.currentTarget)
+                        .attr("r", 5)
+                        .attr("stroke", "white");
+                }
+
+                // Keyboard: Left/Right move between years, Up/Down switch group,
+                // Esc closes the tooltip. Only one point is a tab stop.
+                function moveFocus(event, d) {
+                    const points = chart.selectAll(".data-point").nodes();
+                    let target = null;
+
+                    if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+                        const step = event.key === "ArrowRight" ? 1 : -1;
+                        target = points.find(p => {
+                            const pd = d3.select(p).datum();
+                            return pd.Category === d.Category && pd.Year === d.Year + step;
+                        });
+                    } else if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+                        target = points.find(p => {
+                            const pd = d3.select(p).datum();
+                            return pd.Category !== d.Category && pd.Year === d.Year;
+                        });
+                    } else if (event.key === "Escape") {
+                        hideTooltip(event);
+                        event.currentTarget.blur();
+                        return;
+                    } else {
+                        return;
+                    }
+
+                    if (target) {
+                        event.preventDefault();
+                        points.forEach(p => p.setAttribute("tabindex", -1));
+                        target.setAttribute("tabindex", 0);
+                        target.focus();
+                    }
                 }
 
                 // Interactive points
-                series.forEach(s => {
+                series.forEach((s, si) => {
                     chart.selectAll(null)
                         .data(s.values)
                         .enter()
                         .append("circle")
                         .attr("class", "data-point")
+                        .attr("role", "img")
                         .attr("cx", d => xScale(d.Year))
                         .attr("cy", d => yScale(d[field]))
                         .attr("r", 5)
                         .attr("fill", COLORS[s.name])
                         .attr("stroke", "white")
                         .attr("stroke-width", 2)
-                        .attr("tabindex", 0)
-                        .attr("aria-label", d =>
-                            `${d.Category}, ${d.Year}: ${d3.format(",")(d.Hospitalisations)} hospitalisations`
+                        .attr("tabindex", (d, i) => (si === 0 && i === 0) ? 0 : -1)
+                        .attr("aria-label", d => isIndex
+                            ? `${d.Category}, ${d.Year}: index ${d.Index.toFixed(1)}`
+                            : `${d.Category}, ${d.Year}: ${d3.format(",")(d.Hospitalisations)} hospitalisations`
                         )
                         .on("mouseenter focus", showTooltip)
                         .on("mouseleave blur", hideTooltip)
                         .on("click", showTooltip)
-                        .on("keydown", function (event) {
-                            if (event.key === "Escape") {
-                                hideTooltip(event);
-                                this.blur();
-                            }
-                        });
+                        .on("keydown", moveFocus);
                 });
 
                 // Annotation: First Nations rise in 2020
@@ -267,8 +309,15 @@ Data Source: BITRE, processed using KNIME
                     const pointX = xScale(d2020.Year);
                     const pointY = yScale(d2020[field]);
 
-                    const labelX = pointX - 190;
-                    const labelY = view === "fn" ? pointY + 95 : chartHeight * 0.45;
+                    // First Nations only: below the line, clamped inside the chart.
+                    // Both (counts): middle band between the two lines.
+                    // Index: empty top-left, away from both lines and points.
+                    const labelX = view === "index" ? pointX - 360 : pointX - 190;
+                    const labelY = view === "fn"
+                        ? Math.min(pointY + 95, chartHeight - 65)
+                        : view === "both"
+                            ? chartHeight * 0.45
+                            : 0;
 
                     const annotation = chart.append("g")
                         .attr("class", "annotation")
@@ -315,7 +364,7 @@ Data Source: BITRE, processed using KNIME
                     .data(series)
                     .join("span")
                     .style("--c", d => COLORS[d.name])
-                    .text(d => d.name);
+                    .text(d => d.name + (d.name === NON ? " (dashed line)" : ""));
             }
         })
         .catch(error => {

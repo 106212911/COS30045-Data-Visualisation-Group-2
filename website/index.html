@@ -175,14 +175,37 @@
 
             <p class="chart-insight">
                 <strong>Key finding:</strong>
-                First Nations hospitalisations increased
-                from 1,167 in 2011 to 2,220 in 2021,
-                approximately 90%.
-
-                The indexed growth view compares relative
-                changes in hospitalisation counts between
-                the two population groups, not injury rates.
+                First Nations hospitalisations rose from 1,167
+                in 2011 to 2,220 in 2021, about 90%.
             </p>
+
+        </section>
+
+
+         <!-- Chart 8: First Nations Share -->
+        <!--  Dayaanan -->
+        <section id="first-nations-share-section">
+
+            <h2>First Nations Share of Hospitalisations</h2>
+
+            <div class="chart-scroll">
+                <div id="first-nations-share-chart"></div>
+            </div>
+
+        </section>
+
+
+        <!-- Chart 9: Road User Composition -->
+        <!-- Dayaanan -->
+        <section id="road-user-composition-section">
+
+            <h2>Road User Composition</h2>
+
+            <div class="chart-scroll">
+                <div id="road-user-composition-chart"></div>
+            </div>
+
+            <div id="road-user-composition-legend" class="chart-legend"></div>
 
         </section>
 
@@ -221,6 +244,12 @@
 
     <!-- Chart 4: First Nations Trends -->
     <script src="js/first-nations.js"></script>
+
+    <!-- Chart 8: First Nations Share -->
+    <script src="js/first-nations-share.js"></script>
+    
+    <!-- Chart 9: Road User Composition -->
+    <script src="js/road-user-composition.js"></script>
 
 
     <!-- Dashboard Focus Mode -->
@@ -302,6 +331,9 @@
 
         });
     </script>
+
+    <!-- Dashboard Tabs (must load after the Focus Mode script) -->
+    <script src="js/tabs.js"></script>
 
 
 </body>
