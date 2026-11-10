@@ -8,32 +8,34 @@ Dayaanan
 
     // Which section ids belong on which page.
     // Sections that are not listed here stay on page 1, so nothing disappears.
+
     const PAGES = [
         {
-            title: "Overview",
+            title: "At a Glance",
             sections: [
                 "national-section",
                 "state-section",
-                "road-user-section",
-                "first-nations-section"
+                "road-user-section"
             ]
         },
         {
             title: "Changes & Comparisons",
             sections: [
-                "national-change-section",   // Chart 2 (Man Yee)
-                "state-dumbbell-section",    // Chart 6 (Lin Yan)
-                "road-user-slope-section"    // Chart 3 (Man Yee)
+                "national-change-section",
+                "state-dumbbell-section",
+                "road-user-slope-section"
             ]
         },
         {
             title: "Composition & Communities",
             sections: [
-                "first-nations-share-section",     // Chart 8
-                "road-user-composition-section"    // Chart 9
+                "first-nations-section",
+                "first-nations-share-section",
+                "road-user-composition-section"
             ]
         }
     ];
+
 
     function init() {
 

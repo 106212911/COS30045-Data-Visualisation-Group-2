@@ -18,10 +18,11 @@
     <!-- Website Header -->
     <header>
         <h1>Road Crash Hospitalisations in Australia</h1>
+
         <p>
-            Exploring hospitalised road injuries from 2011 to 2021
-            | Data Source: BITRE (2023)
+            2011–2021 | BITRE (2023) | Hospitalisation counts, not injury rates
         </p>
+
     </header>
 
 
@@ -56,21 +57,9 @@
 
             <h2>National Hospitalisation Trends</h2>
 
-            <p>
-                How have road crash hospitalisations in Australia
-                changed between 2011 and 2021?
-            </p>
-
             <div class="chart-scroll">
                 <div id="national-chart"></div>
             </div>
-
-            <p class="chart-insight">
-                <strong>Key finding:</strong>
-                Hospitalisations increased from 34,033 in 2011
-                to 39,505 in 2021. They declined by approximately
-                4.8% in 2020 before rising again in 2021.
-            </p>
 
         </section>
 
@@ -80,12 +69,6 @@
         <section id="state-section">
 
             <h2>State &amp; Territory Heatmap</h2>
-
-            <p>
-                How do road crash hospitalisations vary
-                across Australian states and territories
-                between 2011 and 2021?
-            </p>
 
             <!-- Heatmap displays all years -->
             <!-- No year dropdown is needed -->
@@ -100,10 +83,6 @@
                 <span id="state-max-count"></span>
             </div>
 
-            <p class="chart-note">
-                Colours show hospitalisation counts, not
-                population-adjusted injury rates.
-            </p>
 
         </section>
 
@@ -113,11 +92,6 @@
         <section id="road-user-section">
 
             <h2>Road User Comparison</h2>
-
-            <p>
-                Which road-user types experience the highest
-                number of hospitalisations in Australia?
-            </p>
 
             <!-- Year Selection -->
             <div class="chart-controls">
@@ -133,14 +107,6 @@
                 <div id="road-user-chart"></div>
             </div>
 
-            <p class="chart-insight">
-                <strong>Explore:</strong>
-                Select a year to compare hospitalisation
-                counts across different road-user categories.
-                Larger counts do not necessarily indicate
-                higher individual injury risk.
-            </p>
-
         </section>
 
 
@@ -149,12 +115,6 @@
         <section id="first-nations-section">
 
             <h2>First Nations Hospitalisation Trends</h2>
-
-            <p>
-                How have hospitalisations changed for
-                First Nations peoples compared with
-                Non-Indigenous Australians?
-            </p>
 
             <!-- Chart View Selection -->
             <div class="chart-controls">
@@ -172,12 +132,6 @@
 
             <!-- Legend -->
             <div id="fn-legend" class="chart-legend"></div>
-
-            <p class="chart-insight">
-                <strong>Key finding:</strong>
-                First Nations hospitalisations rose from 1,167
-                in 2011 to 2,220 in 2021, about 90%.
-            </p>
 
         </section>
 
@@ -210,6 +164,11 @@
         <section id="road-user-composition-section">
 
             <h2>Road User Composition</h2>
+
+            <p id="composition-keyboard-help" class="composition-keyboard-help">
+                Keyboard: Press Tab to select the chart, then use ← / → to explore years.
+            </p>
+
 
             <div class="chart-scroll">
                 <div id="road-user-composition-chart"></div>
@@ -361,6 +320,9 @@
     <!-- Dashboard Tabs (must load after the Focus Mode script) -->
     <script src="js/tabs.js"></script>
 
+
+    <!-- Chart Expansion Controls -->
+    <script src="js/chart-expand.js"></script>
 
 </body>
 

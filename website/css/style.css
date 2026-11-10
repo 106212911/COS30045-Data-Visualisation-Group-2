@@ -939,9 +939,20 @@ footer {
     cursor: pointer;
 }
 
-#road-user-composition-chart .year-column:focus {
-    outline: none;
+
+/* Visible focus for keyboard users */
+#road-user-composition-chart .year-column:focus-visible {
+    outline: 3px solid #D55E00;
+    outline-offset: -3px;
 }
+
+/* Compact keyboard instructions */
+.composition-keyboard-help {
+    font-size: 12px;
+    color: #16324f;
+    margin: 2px 0 6px;
+}
+
 
 /* Bigger legend swatches for the area colours */
 #road-user-composition-legend span::before {
@@ -1037,4 +1048,92 @@ footer {
         min-width: 700px;
         min-height: 300px;
     }
+}
+
+
+/* Three-chart dashboard layout */
+@media (min-width: 1000px) {
+
+    main.dashboard-grid[data-count="3"] {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Make the third visible chart span both columns */
+    main.dashboard-grid[data-count="3"]>section:nth-child(3 of section:not(.tab-hidden)) {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Individual Chart Expansion Controls */
+
+.chart-expand-btn {
+    display: none;
+}
+
+@media (min-width: 1000px) {
+
+    main.dashboard-grid>section {
+        position: relative;
+    }
+
+    .chart-expand-btn {
+        display: inline-flex;
+        position: absolute;
+        top: 9px;
+        right: 12px;
+        z-index: 5;
+
+        padding: 4px 10px;
+        border: 1px solid #16324f;
+        border-radius: 6px;
+
+        background: #ffffff;
+        color: #16324f;
+
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .chart-expand-btn:hover {
+        background: #e9f2fa;
+    }
+
+    .chart-expand-btn:focus-visible {
+        outline: 3px solid #d55e00;
+        outline-offset: 2px;
+    }
+
+    main.dashboard-grid>section h2 {
+        padding-right: 75px;
+    }
+}
+
+
+/* ===== Simplified Dashboard Navigation ===== */
+
+/* Hide the old five-button chart navigation */
+.site-nav {
+    display: none !important;
+}
+
+/* Hide the bottom page navigation */
+.page-pager {
+    display: none !important;
+}
+
+/* Hide the previous/next arrows beside the main tabs */
+.page-tabs>.page-arrow {
+    display: none !important;
+}
+
+/* Keep the three main tabs centred */
+.page-tabs {
+    justify-content: center;
+}
+
+.page-tab-list {
+    justify-content: center;
+    flex-wrap: wrap;
 }

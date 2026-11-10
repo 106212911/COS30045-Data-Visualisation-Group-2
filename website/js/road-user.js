@@ -10,15 +10,17 @@ Data Source: BITRE (2023), processed using KNIME
 
     // 1. Set chart dimensions
 
+
     const margin = {
-        top: 30,
-        right: 75,
-        bottom: 65,
-        left: 260
+        top: 20,
+        right: 95,
+        bottom: 58,
+        left: 285
     };
 
-    const width = 1000;
-    const height = 310;
+    const width = 1700;
+    const height = 270;
+
 
 
     const chartWidth = width - margin.left - margin.right;
@@ -104,25 +106,6 @@ Data Source: BITRE (2023), processed using KNIME
                 );
 
             const yAxis = chart.append("g");
-
-            // X-axis label
-            chart.append("text")
-                .attr("class", "axis-label")
-                .attr("x", chartWidth / 2)
-                .attr("y", chartHeight + 50)
-                .attr("text-anchor", "middle")
-                .attr("font-size", "15px")
-                .text("Number of Hospitalisations");
-
-            // Chart title
-            chart.append("text")
-                .attr("x", chartWidth / 2)
-                .attr("y", -15)
-                .attr("text-anchor", "middle")
-                .attr("font-size", "18px")
-                .attr("font-weight", "bold")
-                .attr("fill", "#16324f")
-                .text("Hospitalisations by Road User Type");
 
             // 10. Function to update the chart
             function updateChart(selectedYear) {
@@ -221,7 +204,7 @@ Data Source: BITRE (2023), processed using KNIME
                         yScale(d.Category) + yScale.bandwidth() / 2
                     )
                     .attr("dy", "0.35em")
-                    .attr("font-size", "12px")
+                    .attr("font-size", "14px")
                     .attr("fill", "#333")
                     .text(d =>
                         d3.format(",")(d.Hospitalisations)

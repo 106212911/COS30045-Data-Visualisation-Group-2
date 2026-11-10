@@ -8,15 +8,17 @@ Data Source: BITRE, processed using KNIME
 
 (() => {
 
+
     const margin = {
         top: 15,
-        right: 25,
+        right: 40,
         bottom: 62,
-        left: 75
+        left: 85
     };
 
-    const width = 900;
+    const width = 1700;
     const height = 260;
+
 
     const chartWidth = width - margin.left - margin.right;
     const chartHeight = height - margin.top - margin.bottom;
@@ -148,8 +150,9 @@ Data Source: BITRE, processed using KNIME
                 .attr("class", "composition-area")
                 .attr("aria-hidden", "true")
                 .attr("fill", d => colorOf[d.key])
-                .attr("stroke", "white")
-                .attr("stroke-width", 1)
+                .attr("stroke", "#FFFFFF")
+                .attr("stroke-width", 2)
+
                 .attr("d", area);
 
             // Vertical line that marks the year being looked at
@@ -234,7 +237,7 @@ Data Source: BITRE, processed using KNIME
                 .data(rows)
                 .join("rect")
                 .attr("class", "year-column")
-                .attr("role", "img")
+                .attr("role", "button")
                 .attr("x", (d, i) => i === 0
                     ? 0
                     : (xScale(years[i - 1]) + xScale(years[i])) / 2)
@@ -251,14 +254,29 @@ Data Source: BITRE, processed using KNIME
                 .attr("height", chartHeight)
                 .attr("fill", "transparent")
                 .attr("tabindex", (d, i) => i === 0 ? 0 : -1)
+                .attr("aria-describedby", "composition-keyboard-help")
                 .attr("aria-label", d =>
-                    `${d.year}: ` +
-                    yearLines(d).map(l => `${l.name} ${pct(l.share)}`).join(", ")
+                    `${d.year}. ` +
+                    yearLines(d)
+                        .map(l =>
+                            `${l.name}: ${pct(l.share)}, ` +
+                            `${fmt(l.count)} hospitalisations`
+                        )
+                        .join(". ")
                 )
+
                 .on("mouseenter focus", showTooltip)
                 .on("mouseleave blur", hideTooltip)
                 .on("click", showTooltip)
-                .on("keydown", moveFocus);
+                .on("keydown", (event, d) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        showTooltip(event, d);
+                    } else {
+                        moveFocus(event);
+                    }
+                });
+
 
             // Legend (top to bottom, same order as the stack)
             d3.select("#road-user-composition-legend")
