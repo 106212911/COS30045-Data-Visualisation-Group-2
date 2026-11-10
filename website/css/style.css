@@ -1137,3 +1137,35 @@ footer {
     justify-content: center;
     flex-wrap: wrap;
 }
+
+
+/* State & Territory Change (Dumbbell Chart) - Lin Yan */
+#state-dumbbell-chart {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+}
+
+#state-dumbbell-chart svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#state-dumbbell-chart .dumbbell-hit {
+    cursor: pointer;
+}
+
+#state-dumbbell-chart .dumbbell-hit:focus-visible {
+    outline: none;
+    stroke: #16324f;
+    stroke-width: 2px;
+}
+
+@media (max-width: 768px) {
+    #state-dumbbell-chart {
+        min-width: 700px;
+        min-height: 300px;
+    }
+}

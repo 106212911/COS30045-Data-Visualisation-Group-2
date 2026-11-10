@@ -4,6 +4,9 @@ COS30045 Group 2 - State & Territory Heatmap
 Data: BITRE hospitalisation counts, cleaned with KNIME
 AI assistance: ChatGPT helped draft the D3 heatmap,
 data loading, layout, tooltip and interaction code.
+Accessibility refinements (visible cell outlines, a lightest colour that
+stays visible on a white background, larger labels) were added with the
+help of ChatGPT / Claude and tested by the contributor.
 */
 
 (() => {
@@ -14,14 +17,21 @@ data loading, layout, tooltip and interaction code.
 
 
     const width = 900;
-    const height = 260;
+    const height = 300;
 
     const margin = {
         top: 15,
         right: 20,
-        bottom: 40,
-        left: 180
+        bottom: 42,
+        left: 205
     };
+
+    // Colour accessibility:
+    //  - the scale still starts at zero and is linear, but its lightest colour is
+    //    shifted so that the lowest cells remain visible on the white panel
+    //  - each cell has a thin outline (about 3:1 contrast against white)
+    const SCALE_START = 0.12;
+    const CELL_OUTLINE = "#6f8fae";
 
 
     const chartWidth = width - margin.left - margin.right;
@@ -73,8 +83,17 @@ data loading, layout, tooltip and interaction code.
                 .range([0, chartHeight])
                 .padding(0.08);
 
-            const color = d3.scaleSequential(d3.interpolateBlues)
-                .domain([0, d3.max(rows, d => d.Hospitalisations)]);
+            const color = d3.scaleSequential(
+                t => d3.interpolateBlues(SCALE_START + (1 - SCALE_START) * t)
+            ).domain([0, d3.max(rows, d => d.Hospitalisations)]);
+
+            // Draw the legend gradient from the same colour scale as the cells
+            d3.select(".heatmap-gradient").style(
+                "background",
+                `linear-gradient(to right, ${d3.range(0, 1.01, 0.25)
+                    .map(t => color(t * d3.max(rows, d => d.Hospitalisations)))
+                    .join(", ")})`
+            );
 
             // Show the highest count represented by the colour scale
             const maxCount = d3.max(
@@ -91,12 +110,15 @@ data loading, layout, tooltip and interaction code.
                 .call(
                     d3.axisBottom(x)
                         .tickSize(0)
+                        .tickPadding(8)
                         .tickFormat(d3.format("d"))
                 )
+                .call(g => g.selectAll("text").style("font-size", "14px"))
                 .select(".domain").remove();
 
             chart.append("g")
-                .call(d3.axisLeft(y).tickSize(0))
+                .call(d3.axisLeft(y).tickSize(0).tickPadding(10))
+                .call(g => g.selectAll("text").style("font-size", "14px"))
                 .select(".domain").remove();
 
             chart.selectAll(".heat-cell")
@@ -109,6 +131,8 @@ data loading, layout, tooltip and interaction code.
                 .attr("height", y.bandwidth())
                 .attr("rx", 3)
                 .attr("fill", d => color(d.Hospitalisations))
+                .attr("stroke", CELL_OUTLINE)
+                .attr("stroke-width", 1)
                 .attr("tabindex", 0)
                 .attr("aria-label", d =>
                     `${d.Category}, ${d.Year}, ${format(d.Hospitalisations)} hospitalisations`
@@ -158,7 +182,9 @@ data loading, layout, tooltip and interaction code.
                 })
                 .on("mouseleave blur", function () {
                     tooltip.style("visibility", "hidden");
-                    d3.select(this).attr("stroke", "none");
+                    d3.select(this)
+                        .attr("stroke", CELL_OUTLINE)
+                        .attr("stroke-width", 1);
                 })
                 .on("keydown", function (event) {
                     if (event.key === "Escape") {
