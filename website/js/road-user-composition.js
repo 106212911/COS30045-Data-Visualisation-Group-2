@@ -3,7 +3,7 @@ COS30045 Data Visualisation - Group 2
 Road User Composition (2011-2021) - 100% stacked area chart
 Dayaanan
 Data Source: BITRE, processed using KNIME
-
+AI Assistance for reviewing and drafting
 */
 
 (() => {

@@ -3,6 +3,8 @@ COS30045 Data Visualisation - Group 2
 First Nations Hospitalisation Trends (2011-2021)
 Data Source: BITRE, processed using KNIME
 Dayaanan
+AI Assistance for reviewing and drafting
+
 */
 
 (() => {
