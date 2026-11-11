@@ -1,13 +1,19 @@
 /*
- * COS30045 Data Visualisation — Group 2
- * Road User Changes: 2011 vs 2021 (slope chart)
- * Contributor: Lai Man Yee
- * Dataset: BITRE hospitalised injury counts processed in KNIME
- *
- * AI assistance disclosure: ChatGPT assisted with the initial D3 chart
- * structure, data selection, accessibility and tooltip code. Review and
- * describe the actual prompts and changes in the Design Book declaration.
- */
+COS30045 Data Visualisation - Group 2
+Road User Changes: 2011 vs 2021 (Slope Chart)
+Contributor: Lai Man Yee
+Data Source: BITRE (2023), processed using KNIME
+
+Generative AI assistance:
+ChatGPT assisted with developing and refining the D3.js slope chart.
+Prompts focused on comparing hospitalisations in 2011 and 2021,
+selecting the five leading road-user categories in 2021,
+calculating percentage changes, adding direct labels, tooltips,
+colour-blind-friendly line styles and keyboard accessibility.
+
+The code and displayed values were reviewed and tested by the contributor.
+*/
+
 (() => {
     const selector = "#road-user-slope-chart";
     const container = d3.select(selector);

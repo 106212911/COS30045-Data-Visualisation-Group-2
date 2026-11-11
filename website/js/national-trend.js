@@ -1,11 +1,18 @@
-
 /*
 COS30045 Data Visualisation - Group 2
 National Hospitalisation Trends (2011-2021)
-Data Source: BITRE, processed using KNIME
+Contributor: Lai Man Yee(105996175)
+Data Source: BITRE (2023), processed using KNIME
+
+Generative AI assistance:
+ChatGPT assisted with developing and refining this D3.js line chart.
+Prompts focused on loading the cleaned CSV, displaying national
+hospitalisation trends, highlighting the 2020 decline, implementing
+interactive tooltips, responsive SVG layout and keyboard accessibility.
+
+The code and displayed values were reviewed and tested by the contributor.
 */
 
-// Set chart dimensions and margins
 (() => {
 
     const margin = {

@@ -1,13 +1,26 @@
 /*
-COS30045 Data Visualisation — Group 2
-Optional guided story for the three-tab D3.js dashboard.
-
-AI-assistance disclosure: ChatGPT assisted with the design and implementation
-of the guided navigation, chart highlighting, and keyboard-accessible controls.
-Prompt summary: "Add a concise Explore the Story tour to the existing three-tab
-road crash hospitalisation dashboard without replacing its chart scripts."
-The team should review and test this code before submission.
-*/
+ * COS30045 Data Visualisation - Group 2
+ * Explore the Story - Guided Storytelling Feature
+ *
+ * Contributor: Lai Man Yee (105996175)
+ * Data Source: BITRE (2023), processed using KNIME
+ *
+ * Purpose:
+ * Provides an optional four-step guided story that
+ * navigates between dashboard tabs and highlights
+ * relevant visualisations.
+ *
+ * Generative AI Assistance:
+ * ChatGPT assisted with the design and implementation
+ * of the guided storytelling feature.
+ * Prompts focused on automatic tab navigation,
+ * chart highlighting, Previous/Next controls,
+ * keyboard accessibility and improving the
+ * narrative sequence of the four findings.
+ *
+ * The code and interactions were reviewed and
+ * manually tested in Microsoft Edge.
+ */
 
 (() => {
     "use strict";

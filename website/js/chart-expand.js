@@ -1,10 +1,22 @@
-
 /*
-COS30045 Data Visualisation - Group 2
-Chart Expansion Controls
-Purpose: Allow users to enlarge charts for easier reading.
-AI-assisted implementation reviewed and tested by the team.
-*/
+ * COS30045 Data Visualisation - Group 2
+ * Dashboard Chart Expansion Controls
+ *
+ * Contributor: Lai Man Yee (105996175)
+ *
+ * Purpose:
+ * Allows users to expand individual charts for better
+ * readability and return to the normal dashboard layout.
+ *
+ * Generative AI Assistance:
+ * ChatGPT was used to assist with developing the chart
+ * expansion feature. Prompts focused on implementing
+ * Expand and Close buttons, supporting the Escape key,
+ * restoring the dashboard layout and maintaining
+ * compatibility with the three-tab navigation.
+ *
+ * The code was reviewed and tested after integration.
+ */
 
 (() => {
     function initialiseChartExpansion() {

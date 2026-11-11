@@ -4,6 +4,17 @@ Three-page navigation (tabs) with previous / next arrows and a "1 of 3" pager
 Dayaanan
 AI Assistance for reviewing and drafting with team
 
+Additional contribution - Lai Man Yee:
+ChatGPT assisted with reorganising the nine visualisations
+into three tabs, with three charts displayed on each tab.
+
+Prompts focused on simplifying the dashboard navigation,
+controlling KPI card visibility on the At a Glance tab,
+and maintaining compatibility with chart expansion
+and the guided storytelling feature.
+
+The changes were reviewed and tested after integration.
+
 */
 
 (() => {

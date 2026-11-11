@@ -16,6 +16,16 @@ Responsive layout: two chart layouts are drawn from the same code.
 AI assistance: ChatGPT / Claude assisted with drafting and refining this D3
 chart. The code was reviewed and tested by the contributor; values were
 checked against the cleaned CSV.
+
+Additional layout refinements - Lai Man Yee:
+ChatGPT assisted with improving the Road User Comparison
+chart after integration into the three-tab dashboard.
+
+Prompts focused on adjusting the SVG dimensions for the
+full-width panel, removing the repeated internal chart
+title and improving category label readability.
+
+The updated chart was reviewed in the dashboard layout.
 */
 
 (() => {

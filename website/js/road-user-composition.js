@@ -4,6 +4,19 @@ Road User Composition (2011-2021) - 100% stacked area chart
 Dayaanan
 Data Source: BITRE, processed using KNIME
 AI Assistance for reviewing and drafting
+
+Additional refinements - Lai Man Yee:
+ChatGPT assisted with improving the layout and accessibility
+of the Road User Composition chart.
+
+Prompts focused on expanding the chart to fit the
+full-width dashboard panel, improving separation between
+stacked categories for colour-blind accessibility,
+and adding keyboard navigation, focus indicators
+and descriptive ARIA labels.
+
+The refinements were manually tested in Microsoft Edge.
+
 */
 
 (() => {

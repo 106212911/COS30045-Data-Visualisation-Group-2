@@ -1,15 +1,26 @@
 /*
-COS30045 Data Visualisation - Group 2
-National Year-on-Year Change in Hospitalisations (2012–2021)
-Assigned contributor: Lai Man Yee
-Data: BITRE (2023), processed in KNIME and exported as a consolidated CSV.
-
-Generative AI assistance disclosure:
-An initial D3.js implementation was drafted with assistance from OpenAI ChatGPT,
-using instructions to calculate annual percentage changes, display a diverging
-column chart, add accessible labels/tooltips, and fit the existing dashboard tabs.
-The team should review, test, and document any subsequent changes.
-*/
+ * COS30045 Data Visualisation - Group 2
+ * National Year-on-Year Change (2012-2021)
+ *
+ * Contributor: Lai Man Yee (105996175)
+ * Data Source: BITRE (2023), processed using KNIME
+ *
+ * Purpose:
+ * Displays annual percentage changes in national
+ * road crash hospitalisations using a D3.js
+ * diverging column chart.
+ *
+ * Generative AI Assistance:
+ * ChatGPT assisted with developing and refining
+ * the D3.js visualisation.
+ * Prompts focused on calculating annual percentage
+ * changes, displaying positive and negative values,
+ * implementing a zero baseline, adding tooltips,
+ * accessible labels and responsive chart sizing.
+ *
+ * The code and displayed values were reviewed
+ * and tested by the contributor.
+ */
 
 (() => {
     const container = d3.select("#national-change-chart");
@@ -215,7 +226,7 @@ The team should review, test, and document any subsequent changes.
                     `${d.Difference >= 0 ? "increase" : "decrease"} of ${numberFormat(Math.abs(d.Difference))}.`)
                 .on("mouseenter focus click", showTooltip)
                 .on("mouseleave blur", hideTooltip)
-                .on("keydown", function(event, d) {
+                .on("keydown", function (event, d) {
                     if (event.key === "Enter" || event.key === " ") {
                         event.preventDefault();
                         showTooltip(event, d);
