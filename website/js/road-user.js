@@ -30,11 +30,13 @@ checked against the cleaned CSV.
 
     // Layouts: viewBox size and margins
     const LAYOUTS = {
+
         wide: {
-            width: 1700, height: 370,
-            margin: { top: 14, right: 100, bottom: 62, left: 290 },
+            width: 1700, height: 280,
+            margin: { top: 14, right: 100, bottom: 50, left: 290 },
             labelSize: 16, tickSize: 14, valueSize: 15, axisTitleSize: 15
         },
+
         compact: {
             width: 760, height: 470,
             margin: { top: 12, right: 64, bottom: 58, left: 250 },

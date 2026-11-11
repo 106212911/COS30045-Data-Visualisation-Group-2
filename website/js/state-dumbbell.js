@@ -220,9 +220,20 @@
                 d3.select(this).attr("fill", "transparent");
                 hideTooltip();
             })
-            .on("keydown", function (event) {
-                if (event.key === "Escape") hideTooltip();
+
+            .on("keydown", function (event, d) {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    d3.select(this).attr("fill", "#eef4fb");
+                    showTooltip(
+                        this.parentNode.querySelector(".dumbbell-line"),
+                        d
+                    );
+                } else if (event.key === "Escape") {
+                    hideTooltip();
+                }
             });
+
 
         // State names (ACT is abbreviated in the compact layout only)
         row.append("text")
@@ -342,7 +353,7 @@
             const insight = decreased.length === 0
                 ? "All 8 states and territories increased"
                 : `${8 - decreased.length} of 8 increased; ` +
-                  `${decreased.length === 1 ? "only " : ""}${decreased.map(d => d.state).join(", ")} decreased`;
+                `${decreased.length === 1 ? "only " : ""}${decreased.map(d => d.state).join(", ")} decreased`;
 
             draw(pairs, insight);
             compactQuery.addEventListener("change", () => draw(pairs, insight));

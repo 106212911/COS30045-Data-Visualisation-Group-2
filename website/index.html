@@ -11,6 +11,10 @@
     <title>Road Crash Hospitalisations in Australia</title>
 
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Guided Story Styling -->
+    <link rel="stylesheet" href="css/story-tour.css">
+
 </head>
 
 <body>
@@ -22,6 +26,66 @@
         <p>
             2011–2021 | BITRE (2023) | Hospitalisation counts, not injury rates
         </p>
+
+        <!-- Data definitions and methodological notes -->
+        <details class="data-guide">
+            <summary>ⓘ Data &amp; Definitions</summary>
+
+            <div class="data-guide-panel">
+                <h2>Data &amp; Definitions</h2>
+
+                <dl>
+                    <dt>Hospitalisations</dt>
+                    <dd>
+                        Reported hospitalised injuries resulting
+                        from road traffic crashes in Australia.
+                    </dd>
+
+                    <dt>Counts vs injury rates</dt>
+                    <dd>
+                        Counts are not adjusted for population size.
+                        Higher counts do not necessarily mean
+                        higher individual injury risk.
+                    </dd>
+
+                    <dt>Year-on-year change</dt>
+                    <dd>
+                        Percentage increase or decrease compared
+                        with the previous year.
+                    </dd>
+
+                    <dt>Indexed growth</dt>
+                    <dd>
+                        Each group's 2011 count is set to 100
+                        to compare relative changes over time.
+                    </dd>
+
+                    <dt>First Nations Share</dt>
+                    <dd>
+                        First Nations hospitalisations divided
+                        by the combined reported counts for
+                        First Nations and Non-Indigenous Australians.
+                        This is not an injury rate.
+                    </dd>
+
+                    <dt>Data limitations</dt>
+                    <dd>
+                        Some 2014 raw values were unpublished.
+                        Official annual totals were used.
+                        Reporting changes also affect comparisons
+                        for Victoria from 2012 and NSW from 2017.
+                    </dd>
+                </dl>
+
+                <p>
+                    Source:
+                    <a href="https://www.bitre.gov.au/resource/road-safety/hospitalised-injury" target="_blank"
+                        rel="noopener noreferrer">
+                        BITRE Hospitalised Injury (2023)
+                    </a>
+                </p>
+            </div>
+        </details>
 
     </header>
 
@@ -50,6 +114,28 @@
 
     <!-- Main Dashboard -->
     <main class="dashboard-grid">
+
+
+        <!-- Overview KPI Summary - Group 2 -->
+        <div id="overview-kpis" class="overview-kpis" aria-label="Key road crash hospitalisation statistics for 2021">
+
+            <div class="kpi-card">
+                <span class="kpi-value">39,505</span>
+                <span class="kpi-label">National hospitalisations · 2021</span>
+            </div>
+
+            <div class="kpi-card">
+                <span class="kpi-value">+4.1%</span>
+                <span class="kpi-label">Change from 2020 to 2021</span>
+            </div>
+
+            <div class="kpi-card">
+                <span class="kpi-value">13,327</span>
+                <span class="kpi-label">Car-driver hospitalisations · 2021</span>
+            </div>
+
+        </div>
+
 
         <!-- Chart 1: National Hospitalisation Trends -->
         <!-- Developer: Lai Man Yee -->
@@ -178,7 +264,7 @@
 
         </section>
 
-                <!-- Chart 6: State & Territory Change (Dumbbell) -->
+        <!-- Chart 6: State & Territory Change (Dumbbell) -->
         <!-- Developer: Lin Yan -->
         <section id="state-dumbbell-section">
 
@@ -239,7 +325,7 @@
     <!-- Chart 3: Road User Comparison -->
     <script src="js/road-user.js"></script>
 
-     <!-- Chart 6: State & Territory Change (Dumbbell) -->
+    <!-- Chart 6: State & Territory Change (Dumbbell) -->
     <script src="js/state-dumbbell.js"></script>
 
     <!-- Chart 4: First Nations Trends -->
@@ -338,6 +424,11 @@
 
     <!-- Chart Expansion Controls -->
     <script src="js/chart-expand.js"></script>
+
+
+    <!-- Optional Guided Data Story -->
+    <script src="js/story-tour.js"></script>
+
 
 </body>
 

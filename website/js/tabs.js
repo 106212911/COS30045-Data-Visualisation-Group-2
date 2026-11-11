@@ -121,6 +121,16 @@ Dayaanan
 
             current = index;
 
+
+            // Show KPI cards only on the At a Glance tab
+            const overviewKpis = document.getElementById("overview-kpis");
+
+            if (overviewKpis) {
+                overviewKpis.hidden = current !== 0;
+                dashboard.classList.toggle("kpi-visible", current === 0);
+            }
+
+
             let visibleCount = 0;
             sections.forEach(section => {
                 const onPage = pageOf(section.id) === current;

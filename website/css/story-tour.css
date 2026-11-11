@@ -1,0 +1,156 @@
+/* COS30045 Group 2 — Optional guided story */
+.story-launch {
+    appearance: none;
+    border: 2px solid #0072b2;
+    background: #ffffff;
+    color: #16324f;
+    border-radius: 22px;
+    padding: 7px 13px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.story-launch:hover,
+.story-launch.story-launch-active {
+    background: #e6f2fa;
+}
+
+.story-launch:focus-visible,
+.story-tour-panel button:focus-visible {
+    outline: 3px solid #d55e00;
+    outline-offset: 3px;
+}
+
+main.dashboard-grid > section.story-highlight {
+    outline: 4px solid #d55e00;
+    outline-offset: -4px;
+    box-shadow: 0 0 0 3px rgba(213, 94, 0, 0.2);
+}
+
+.story-tour-panel[hidden] {
+    display: none !important;
+}
+
+.story-tour-panel {
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 1500;
+    right: 16px;
+    bottom: 16px;
+    width: min(355px, calc(100vw - 32px));
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 16px;
+    background: #ffffff;
+    color: #16324f;
+    border: 1px solid #a9bfd0;
+    border-radius: 12px;
+    box-shadow: 0 5px 28px rgba(11, 35, 56, 0.28);
+}
+
+.story-tour-panel[data-position="bottom-left"] {
+    left: 16px;
+    right: auto;
+}
+
+.story-tour-panel[data-position="top-right"] {
+    top: 115px;
+    bottom: auto;
+}
+
+.story-panel-heading,
+.story-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.story-panel-heading h2 {
+    margin: 0;
+    color: #16324f;
+    font-size: 19px;
+}
+
+.story-close {
+    background: #f2f5f8;
+    border: 1px solid #c4d1dc;
+    border-radius: 6px;
+    color: #16324f;
+    cursor: pointer;
+    font-size: 22px;
+    line-height: 1;
+    padding: 3px 9px;
+}
+
+.story-progress {
+    font-size: 12px;
+    font-weight: 700;
+    color: #576b7f;
+    margin: 8px 0;
+}
+
+.story-title {
+    font-size: 17px;
+    margin: 8px 0;
+    color: #16324f;
+}
+
+.story-figure {
+    font-size: 24px;
+    font-weight: 800;
+    margin: 3px 0 8px;
+    color: #0072b2;
+}
+
+.story-explanation,
+.story-target {
+    font-size: 14px;
+    line-height: 1.45;
+    margin: 6px 0;
+}
+
+.story-target {
+    font-weight: 600;
+}
+
+.story-actions {
+    margin-top: 12px;
+}
+
+.story-actions button {
+    background: #16324f;
+    color: #ffffff;
+    border: 1px solid #16324f;
+    border-radius: 7px;
+    cursor: pointer;
+    padding: 7px 14px;
+    font-size: 14px;
+}
+
+.story-actions button:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+}
+
+.story-note {
+    border-top: 1px solid #d9e3ec;
+    color: #576b7f;
+    font-size: 12px;
+    margin: 12px 0 0;
+    padding-top: 9px;
+}
+
+@media (max-width: 760px) {
+    .story-tour-panel,
+    .story-tour-panel[data-position="bottom-left"],
+    .story-tour-panel[data-position="top-right"] {
+        left: 12px;
+        right: 12px;
+        top: auto;
+        bottom: 12px;
+        width: auto;
+        max-height: 56vh;
+    }
+}

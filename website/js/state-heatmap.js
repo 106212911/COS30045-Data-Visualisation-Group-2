@@ -113,12 +113,12 @@ help of ChatGPT / Claude and tested by the contributor.
                         .tickPadding(8)
                         .tickFormat(d3.format("d"))
                 )
-                .call(g => g.selectAll("text").style("font-size", "14px"))
+                .call(g => g.selectAll("text").style("font-size", "16px"))
                 .select(".domain").remove();
 
             chart.append("g")
                 .call(d3.axisLeft(y).tickSize(0).tickPadding(10))
-                .call(g => g.selectAll("text").style("font-size", "14px"))
+                .call(g => g.selectAll("text").style("font-size", "16px"))
                 .select(".domain").remove();
 
             chart.selectAll(".heat-cell")

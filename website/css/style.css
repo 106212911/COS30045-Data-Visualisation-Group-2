@@ -1165,8 +1165,167 @@ footer {
 
 @media (max-width: 768px) {
     #state-dumbbell-chart {
-           min-width: 320px;
-           min-height: 400px;
-       
+        min-width: 320px;
+        min-height: 400px;
+
+    }
+}
+
+
+/* ===== Overview KPI Cards ===== */
+
+.overview-kpis {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    grid-column: 1 / -1;
+}
+
+.overview-kpis[hidden] {
+    display: none !important;
+}
+
+.kpi-card {
+    background: #eaf2f8;
+    border: 1px solid #d0e0ed;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 10px;
+    text-align: center;
+    min-width: 0;
+}
+
+.kpi-value {
+    color: #16324f;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.kpi-label {
+    color: #344b60;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+/* Reserve one compact row for KPI cards */
+@media (min-width: 1000px) {
+    main.dashboard-grid.kpi-visible[data-count="3"] {
+        grid-template-rows: 64px repeat(2, minmax(0, 1fr));
+    }
+
+    /* Hide KPIs when a chart is expanded */
+    main.dashboard-grid.focus-mode .overview-kpis {
+        display: none !important;
+    }
+}
+
+/* Stack KPI cards on narrow screens */
+@media (max-width: 700px) {
+    .overview-kpis {
+        grid-template-columns: 1fr;
+    }
+
+    .kpi-label {
+        font-size: 14px;
+    }
+}
+
+
+/* ===== Data & Definitions Panel ===== */
+
+header {
+    position: relative;
+    z-index: 1000;
+}
+
+.data-guide {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    text-align: left;
+}
+
+.data-guide summary {
+    display: inline-block;
+    cursor: pointer;
+    background: #ffffff;
+    color: #16324f;
+    border: 1px solid #d1dce6;
+    border-radius: 7px;
+    padding: 5px 10px;
+    font-size: 13px;
+    font-weight: 600;
+    list-style: none;
+}
+
+.data-guide summary::-webkit-details-marker {
+    display: none;
+}
+
+.data-guide summary:focus-visible {
+    outline: 3px solid #d55e00;
+    outline-offset: 3px;
+}
+
+.data-guide-panel {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: min(390px, calc(100vw - 32px));
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 18px;
+    box-sizing: border-box;
+    background: #ffffff;
+    color: #16324f;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+    z-index: 1001;
+}
+
+.data-guide-panel h2 {
+    font-size: 19px;
+    margin: 0 0 12px;
+}
+
+.data-guide-panel dt {
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: 11px;
+}
+
+.data-guide-panel dd {
+    margin: 3px 0 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.data-guide-panel p {
+    color: #16324f;
+    font-size: 13px;
+    text-align: left;
+    margin-top: 14px;
+}
+
+.data-guide-panel a {
+    color: #005a9c;
+}
+
+@media (max-width: 900px) {
+    .data-guide {
+        position: static;
+        display: inline-block;
+        margin-top: 8px;
+    }
+
+    .data-guide-panel {
+        position: absolute;
+        top: 100%;
+        right: 10px;
     }
 }

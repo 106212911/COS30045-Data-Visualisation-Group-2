@@ -23,17 +23,16 @@
     const number = d3.format(",");
     const signed = n => (n > 0 ? "+" : "") + n.toFixed(1) + "%";
 
+
     const svg = container.append("svg")
         .attr("viewBox", `0 0 ${W} ${H}`)
         .attr("role", "group")
-        .attr("aria-labelledby", "slope-title slope-desc");
-
-    svg.append("title")
-        .attr("id", "slope-title")
-        .text("Road-user hospitalisation counts: 2011 versus 2021");
+        .attr("aria-label", "Road-user hospitalisation counts: 2011 versus 2021")
+        .attr("aria-describedby", "slope-desc");
 
     const description = svg.append("desc")
         .attr("id", "slope-desc");
+
 
     const tooltip = container.append("div")
         .attr("class", "chart-tooltip")
