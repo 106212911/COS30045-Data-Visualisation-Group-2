@@ -31,7 +31,7 @@ AI Assistance for reviewing and drafting
     const pct = v => (v * 100).toFixed(1) + "%";
 
     const container = d3.select("#first-nations-share-chart");
-    
+
 
     const svg = container.append("svg")
         .attr("viewBox", `0 0 ${width} ${height}`)
