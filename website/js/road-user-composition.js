@@ -28,7 +28,7 @@ Data Source: BITRE, processed using KNIME
     const pct = v => (v * 100).toFixed(1) + "%";
 
     // Colour-blind-safe colours (Okabe-Ito), grey for the combined group
-    const PALETTE = ["#0072B2", "#E69F00", "#009E73", "#CC79A7", "#56B4E9"];
+    const PALETTE = ["#0072B2", "#E69F00", "#005C42", "#CC79A7", "#56B4E9"];
     const OTHER_COLOR = "#999999";
 
     const container = d3.select("#road-user-composition-chart");
@@ -226,13 +226,11 @@ Data Source: BITRE, processed using KNIME
 
                 if (target) {
                     event.preventDefault();
-                    nodes.forEach(n => n.setAttribute("tabindex", -1));
-                    target.setAttribute("tabindex", 0);
                     target.focus();
                 }
             }
 
-            // Invisible column for each year so the mouse and keyboard can pick a year
+            // Invisible column for each year s o the mouse and keyboard can pick a year
             chart.selectAll(".year-column")
                 .data(rows)
                 .join("rect")
@@ -253,7 +251,7 @@ Data Source: BITRE, processed using KNIME
                 .attr("y", 0)
                 .attr("height", chartHeight)
                 .attr("fill", "transparent")
-                .attr("tabindex", (d, i) => i === 0 ? 0 : -1)
+                .attr("tabindex", 0)
                 .attr("aria-describedby", "composition-keyboard-help")
                 .attr("aria-label", d =>
                     `${d.year}. ` +

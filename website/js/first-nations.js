@@ -285,7 +285,7 @@ Dayaanan
                         .attr("fill", COLORS[s.name])
                         .attr("stroke", "white")
                         .attr("stroke-width", 2)
-                        .attr("tabindex", (d, i) => (si === 0 && i === 0) ? 0 : -1)
+                        .attr("tabindex", 0)
                         .attr("aria-label", d => isIndex
                             ? `${d.Category}, ${d.Year}: index ${d.Index.toFixed(1)}`
                             : `${d.Category}, ${d.Year}: ${d3.format(",")(d.Hospitalisations)} hospitalisations`

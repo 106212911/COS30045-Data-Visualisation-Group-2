@@ -134,6 +134,7 @@ linyan*/
                 .attr("stroke", CELL_OUTLINE)
                 .attr("stroke-width", 1)
                 .attr("tabindex", 0)
+                .attr("role", "img")
                 .attr("aria-label", d =>
                     `${d.Category}, ${d.Year}, ${format(d.Hospitalisations)} hospitalisations`
                 )
