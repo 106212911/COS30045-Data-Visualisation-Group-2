@@ -1165,7 +1165,8 @@ footer {
 
 @media (max-width: 768px) {
     #state-dumbbell-chart {
-        min-width: 700px;
-        min-height: 300px;
+           min-width: 320px;
+           min-height: 400px;
+       
     }
 }
