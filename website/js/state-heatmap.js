@@ -7,7 +7,7 @@ data loading, layout, tooltip and interaction code.
 Accessibility refinements (visible cell outlines, a lightest colour that
 stays visible on a white background, larger labels) were added with the
 help of ChatGPT / Claude and tested by the contributor.
-*/
+linyan*/
 
 (() => {
     const container = d3.select("#state-chart");

@@ -18,10 +18,14 @@
  * Responsive layout: a wide layout (dashboard and Expand view) and a compact
  * layout (screens up to 768 px) are drawn from the same code.
  *
- * AI assistance disclosure: ChatGPT / Claude assisted with drafting this
- * D3 chart (layout, label placement, tooltip and keyboard code). The values
- * were checked against the cleaned CSV and the chart was tested by the
- * contributor. Describe the actual prompts and changes in the Design Book.
+ * AI assistance summary (GenAI acknowledgement):
+ChatGPT / Claude were used to help draft and refine this chart. Prompts covered:
+(1) build a D3 v7 chart from the cleaned CSV with a data check,
+(2) add tooltips, keyboard focus and Escape-to-dismiss,
+(3) make the layout responsive with a compact layout via matchMedia,
+(4) use a colour-blind-safe palette with non-colour cues,
+(5) review the code for readability and comments.
+The contributor reviewed, tested and edited the code; values were checked against the cleaned CSV.
  */
 (() => {
     const container = d3.select("#state-dumbbell-chart");
