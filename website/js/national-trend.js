@@ -192,6 +192,7 @@ Data Source: BITRE, processed using KNIME
                 .attr("stroke", "white")
                 .attr("stroke-width", 2)
                 .attr("tabindex", 0)
+                .attr("role", "img")
                 .attr("aria-label", d =>
                     `${d.Year}: ${d3.format(",")(d.Hospitalisations)} hospitalisations`
                 )

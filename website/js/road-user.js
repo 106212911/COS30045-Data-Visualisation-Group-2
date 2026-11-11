@@ -205,6 +205,7 @@ checked against the cleaned CSV.
                     // Tooltip, hover highlight and keyboard focus
                     allBars
                         .attr("tabindex", 0)
+                        .attr("role", "img")
                         .attr("aria-label", d =>
                             `${d.Category}: ${format(d.Hospitalisations)} hospitalisations in ${d.Year}`)
                         .on("mouseenter focus", function (event, d) {

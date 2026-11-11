@@ -29,6 +29,7 @@ Data Source: BITRE, processed using KNIME
     const pct = v => (v * 100).toFixed(1) + "%";
 
     const container = d3.select("#first-nations-share-chart");
+    
 
     const svg = container.append("svg")
         .attr("viewBox", `0 0 ${width} ${height}`)
@@ -228,7 +229,7 @@ Data Source: BITRE, processed using KNIME
                 .attr("fill", COLOR)
                 .attr("stroke", "white")
                 .attr("stroke-width", 2)
-                .attr("tabindex", (d, i) => i === 0 ? 0 : -1)
+                .attr("tabindex", 0)
                 .attr("aria-label", d =>
                     `${d.year}: First Nations peoples were ${pct(d.share)} of hospitalisations ` +
                     `(${fmt(d.fnCount)} of ${fmt(d.total)})`
