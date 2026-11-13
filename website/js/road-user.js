@@ -2,7 +2,7 @@
 /*
 COS30045 Data Visualisation - Group 2
 Road User Comparison (horizontal bar chart)
-Developer: Lin Yan
+Developer: Wong Lin Yan
 Data Source: BITRE (2023), processed using KNIME
 
 Question answered: Which road-user groups recorded the most hospitalisations

@@ -3,10 +3,17 @@ COS30045 Data Visualisation - Group 2
 First Nations Share of Hospitalisations (2011-2021) - Lollipop chart
 Dayaanan
 Data Source: BITRE, processed using KNIME
-AI Assistance for reviewing and drafting
+Generative AI Assistance (summary of prompts):
+Claude was used to help debug and refine this chart. Prompts covered
+fixing code errors, the lollipop layout, share calculation, labels, tooltips, keyboard
+navigation between data points and ARIA labels. Accessibility fixes
+after Lighthouse and colour-vision testing were also made with Claude.
+The contributor tested every colour and interaction manually and
+checked the values against the cleaned CSV.
 
 
 */
+
 
 (() => {
 

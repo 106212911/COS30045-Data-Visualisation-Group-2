@@ -3,7 +3,14 @@ COS30045 Data Visualisation - Group 2
 First Nations Hospitalisation Trends (2011-2021)
 Data Source: BITRE, processed using KNIME
 Dayaanan
-AI Assistance for reviewing and drafting
+Generative AI Assistance (summary of prompts):
+Claude was used to help debug and refine this chart. Prompts covered
+fixing code errors, the three-view dropdown (counts / both groups /
+growth since 2011 = 100), the 2020 annotation, tooltips, keyboard
+navigation between data points and ARIA labels. Accessibility fixes
+after Lighthouse and colour-vision testing were also made with Claude.
+The contributor tested every colour and interaction manually and
+checked the values against the cleaned CSV.
 
 */
 

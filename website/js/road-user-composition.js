@@ -1,9 +1,14 @@
 /*
 COS30045 Data Visualisation - Group 2
 Road User Composition (2011-2021) - 100% stacked area chart
-Dayaanan
+Developer:Dayaanan
 Data Source: BITRE, processed using KNIME
-AI Assistance for reviewing and drafting
+Generative AI Assistance (summary of prompts):
+Claude was used to help debug and refine this chart. Prompts covered
+the 100% stacked-area layout, grouping the smaller road users into
+"All other road users", tooltips and keyboard navigation with arrow keys.
+After colour-vision testing (deuteranopia) the Pedal cyclist colour was
+darkened from #009E73 to #005C42 so it differs from Car passenger.
 
 Additional refinements - Lai Man Yee:
 ChatGPT assisted with improving the layout and accessibility
@@ -18,6 +23,7 @@ and descriptive ARIA labels.
 The refinements were manually tested in Microsoft Edge.
 
 */
+
 
 (() => {
 

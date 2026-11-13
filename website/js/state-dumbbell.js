@@ -1,7 +1,7 @@
 /*
  * COS30045 Data Visualisation - Group 2
  * State & Territory Change: 2011 vs 2021 (dumbbell chart)
- * Contributor: Lin Yan
+ * Contributor: Wong Lin Yan
  * Dataset: BITRE hospitalised injury counts processed in KNIME
  *          (State Total records in Group2_Road_Injury_Cleaned.csv)
  *

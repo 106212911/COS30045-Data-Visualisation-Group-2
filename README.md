@@ -113,67 +113,30 @@ The workflow package includes the three source workbooks, data dictionary and pr
 Generative AI assistance is documented in Appendix A of the design book.
 
 
-## Stand-up 2: Updated Data Processing and Visualisation
-
-### Project Overview
-This project explores hospitalised road crash injuries in
-Australia from 2011 to 2021 using BITRE datasets.
-
-The data was cleaned, transformed, integrated and validated
-using KNIME Analytics Platform. Interactive visualisations
-are developed using D3.js.
-
-### Updated Dataset
-The final cleaned dataset is located at:
-
-`website/data/Group2_Road_Injury_Cleaned.csv`
-
-It contains 253 records and four columns:
-- Year
-- Breakdown
-- Category
-- Hospitalisations
-
-The dataset supports four analytical breakdowns:
-- National Total (11 records)
-- National Road User (132 records)
-- State Total (88 records)
-- Population Status (22 records)
-
-These breakdowns overlap and should not be added together.
+## Final Submission: Website and Data
 
 ### Website
-The website files are located inside the `website` folder.
+Open `website/index.html` with Live Server in Visual Studio Code (or visit the Mercury link submitted on Canvas). The dashboard has nine D3.js (v7) charts on three tabs:
 
-To run the website:
-1. Download or clone this GitHub repository.
-2. Open the project in Visual Studio Code.
-3. Open `website/index.html` using Live Server.
-4. View the interactive D3.js visualisations in a browser.
+| Tab | Charts |
+|---|---|
+| 1. At a Glance | National Hospitalisation Trends (line), State & Territory Heatmap, Road User Comparison (horizontal bar) |
+| 2. Changes & Comparisons | National Year-on-Year Change (diverging columns), State & Territory Change (dumbbell), Road User Changes 2011 vs 2021 (slope) |
+| 3. Composition & Communities | First Nations Trends (line), First Nations Share (lollipop), Road User Composition (100% stacked area) |
 
-### D3.js Visualisations
-- National Hospitalisation Trends: Interactive line chart
-  with tooltips and a 2020 decline annotation (completed).
-- State and Territory Comparison: In development.
-- Road User Comparison: In development.
-- First Nations Trends: In development.
+Extra features: KPI cards, Data & Definitions panel, per-chart Expand view, four-step Explore the Story tour, tooltips, keyboard navigation and colour-blind-safe palettes.
 
-All visualisations use the cleaned CSV dataset.
+### Data
+`website/data/Group2_Road_Injury_Cleaned.csv` (253 records: Year, Breakdown, Category, Hospitalisations). The breakdowns overlap and must not be added together. Counts are not population-adjusted rates.
 
-### KNIME Workflow
-The revised Stand-up 2 KNIME workflow is included in
-the repository as a `.knwf` file.
+### KNIME
+`Group 2 Road Injury Processing Standup 2.knwf` contains the workflow and the source workbooks and exported CSV. `Standup1_Archive` holds earlier work.
 
-It includes data cleaning, standardisation, aggregation,
-integration and validation against BITRE published totals.
+### Code structure
+`js/` has one file per chart plus `tabs.js`, `chart-expand.js` and `story-tour.js`. Each file's header names the contributor and summarises GenAI use.
 
-### Stand-up 1 Archive
-Earlier datasets and project documents are retained in
-the `Standup1_Archive` folder for reference.
-
-The website uses the updated consolidated dataset rather
-than the earlier separate CSV files.
+### Testing
+Lighthouse accessibility 100 on all three tabs, keyboard-only navigation, colour-contrast and colour-vision simulation (protanopia, deuteranopia, tritanopia, achromatopsia), mobile layout at 390 px and a three-participant usability test are documented in the Design Book.
 
 ### Data Source
-Bureau of Infrastructure and Transport Research Economics
-(BITRE), Hospitalised Injury Data (2023).
+Bureau of Infrastructure and Transport Research Economics (BITRE), Hospitalised Injury (September 2023).

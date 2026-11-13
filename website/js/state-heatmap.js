@@ -1,4 +1,3 @@
-
 /*
 COS30045 Group 2 - State & Territory Heatmap
 Data: BITRE hospitalisation counts, cleaned with KNIME
@@ -7,7 +6,13 @@ data loading, layout, tooltip and interaction code.
 Accessibility refinements (visible cell outlines, a lightest colour that
 stays visible on a white background, larger labels) were added with the
 help of ChatGPT / Claude and tested by the contributor.
-linyan*/
+
+Summary of AI prompts: (1) draft a D3 v7 heatmap from the cleaned CSV with
+a data check (88 records); (2) sequential blue colour scale and legend;
+(3) tooltips on hover, focus and tap, kept inside the chart; (4) responsive
+SVG viewBox with minimum width; (5) keyboard focus, ARIA labels, Escape.
+Contributor: Wong Lin Yan
+*/
 
 (() => {
     const container = d3.select("#state-chart");

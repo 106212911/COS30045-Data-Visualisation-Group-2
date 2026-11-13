@@ -1,7 +1,7 @@
 /*
 COS30045 Data Visualisation - Group 2
 Three-page navigation (tabs) with previous / next arrows and a "1 of 3" pager
-Dayaanan
+Contributor: Dayaanan
 AI Assistance for reviewing and drafting with team
 
 Additional contribution - Lai Man Yee:
